@@ -3,9 +3,12 @@ info:
   title: KOUST OAUTH2.0
   version: '1.0'
 servers:
-  - url: 'https://koustapp.com/apex/rest'
+  - url: 'https://koustapp.com/apex/rest/public_authentication'
+    description: Auth URL
+  - description: API URL
+    url: 'https://koustapp.com/apex/rest/public_api'
 paths:
-  /public_authentication/generate_client:
+  generate_client:
     parameters: []
     get:
       summary: Get Credentials
