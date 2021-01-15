@@ -8,7 +8,7 @@ paths:
   /public_authentication/generate_client:
     parameters: []
     get:
-      summary: Get credentials needed for access token
+      summary: Get Credentials
       tags: []
       operationId: get-client-credentials
       description: Retrieve the client_id and client_secret needed to obtain an access token.
@@ -28,6 +28,23 @@ paths:
                   username: contact@koustuser.fr
                   password: 2efb#457
         description: The username and password used to connect on Koust
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_id:
+                    type: string
+                  client_secret:
+                    type: string
+              examples:
+                Example:
+                  value:
+                    client_id: GxXjEJQ8Y0XQVYODVfFTIU..
+                    client_secret: BHHhx6qz13T3rYIk7dOerQ..
 components:
   schemas:
     Client-Response:
