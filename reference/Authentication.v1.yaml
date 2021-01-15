@@ -43,6 +43,12 @@ paths:
                   value:
                     client_id: GxXjEJQ8Y0XQVYODVfFTIU..
                     client_secret: BHHhx6qz13T3rYIk7dOerQ..
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
 components:
   schemas:
     Client-Response:
