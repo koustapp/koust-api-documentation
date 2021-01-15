@@ -3,25 +3,15 @@ info:
   title: KOUST OAUTH2.0
   version: '1.0'
 servers:
-  - url: 'https://koustserv.maxapex.net/apex/rest'
+  - url: 'https://koustapp.com/apex/rest'
 paths:
   /public_authentication/generate_client:
     parameters: []
     get:
       summary: Get credentials needed for access token
       tags: []
-      responses:
-        '200':
-          description: User Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples: {}
-        '404':
-          description: User Not Found
       operationId: get-client-credentials
-      description: Retrieve the client_id and client_secret needed to obtain an access token. Use Koust credentials to get a success response.
+      description: Retrieve the client_id and client_secret needed to obtain an access token.
       requestBody:
         content:
           application/json:
@@ -35,10 +25,9 @@ paths:
             examples:
               Example:
                 value:
-                  username: MyKoustUsername
-                  password: MyKoustPassword
-        description: ''
-  /user: {}
+                  username: contact@koustuser.fr
+                  password: 2efb#457
+        description: The username and password used to connect on Koust
 components:
   schemas:
     Client-Response:
@@ -68,3 +57,4 @@ components:
           access_token: string
           token_type: bearer
           expires_in: string
+  securitySchemes: {}
