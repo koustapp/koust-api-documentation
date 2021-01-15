@@ -2,11 +2,10 @@ openapi: 3.0.0
 info:
   title: KOUST OAUTH2.0
   version: '1.0'
+  description: ''
 servers:
   - url: 'https://koustapp.com/apex/rest/public_authentication'
     description: Auth URL
-  - description: API URL
-    url: 'https://koustapp.com/apex/rest/public_api'
 paths:
   generate_client:
     parameters: []
