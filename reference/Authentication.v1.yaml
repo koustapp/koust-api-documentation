@@ -49,6 +49,12 @@ paths:
           in: header
           name: Content-Type
           description: application/json
+    post:
+      summary: ''
+      operationId: postgenerate_client
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     Client-Response:
