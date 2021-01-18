@@ -10,7 +10,7 @@ paths:
   generate_client:
     parameters: []
     post:
-      summary: ''
+      summary: Generate Client Token
       operationId: postgenerate_client
       responses:
         '200':
