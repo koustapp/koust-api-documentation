@@ -7,7 +7,7 @@ servers:
   - url: 'https://koustapp.com/apex/rest/public_authentication'
     description: Auth URL
 paths:
-  generate_client:
+  /generate_client:
     parameters: []
     post:
       summary: Generate Client Token
@@ -27,12 +27,7 @@ paths:
                     client_secret: BHHhx6ql13T3qYIk7dOeqQ..
       description: Retrieve the client_id and client_secret needed to obtain an access token.
       parameters:
-        - schema:
-            type: string
-          in: header
-          name: Content-Type
-          description: application/json
-          required: true
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
         content:
           application/json:
@@ -108,5 +103,13 @@ components:
           token_type: bearer
           expires_in: string
   securitySchemes: {}
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+      description: application/json
 tags:
   - name: OAuth2.0
