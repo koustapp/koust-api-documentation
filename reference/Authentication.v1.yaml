@@ -108,6 +108,32 @@ paths:
           in: query
           name: client_secret
           required: true
+  /refresh_token:
+    post:
+      summary: Refresh Access Token
+      operationId: post-refresh_token
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+          description: Bearer token
+      description: Use this endpoint to refresh your expired token.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client-Response'
+            examples:
+              Example:
+                value:
+                  client_id: GxKjEJQ8Y0XQVYODVzFTIA..
+                  client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+        description: The client_id and client_secret of the user
 components:
   schemas:
     Client-Response:
