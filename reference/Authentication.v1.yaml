@@ -163,9 +163,14 @@ paths:
                   value:
                     client_id: GxKjEJQ8Y0XQVYODVzFTIA..
                     client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+            application/xml:
+              schema:
+                type: object
+                properties: {}
       parameters:
         - schema:
             type: string
+            default: Bearer <token>
           in: header
           name: Authorization
           required: true
