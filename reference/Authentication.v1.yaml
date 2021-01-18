@@ -25,6 +25,28 @@ paths:
                   value:
                     client_id: GxKjEJQ8Y0XQVYODVzFTIA..
                     client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Trial period expired:
+                  value:
+                    message: 'Your trial period has expired, please contact administrator.'
+                Subscription expired:
+                  value:
+                    message: 'Your subscription has expired, please contact administrator.'
+                Invalid password:
+                  value:
+                    message: Please provide a valid password.
+                Invalid username:
+                  value:
+                    message: Please provide a valid username.
       description: Retrieve the client_id and client_secret needed to obtain an access token.
       parameters:
         - $ref: '#/components/parameters/Content-Type'
