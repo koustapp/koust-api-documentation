@@ -47,6 +47,19 @@ paths:
                 Invalid username:
                   value:
                     message: Please provide a valid username.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Authentication failed:
+                  value:
+                    message: 'Authentication failed, please verify credentials.'
       description: Retrieve the client_id and client_secret needed to obtain an access token.
       parameters:
         - $ref: '#/components/parameters/Content-Type'
