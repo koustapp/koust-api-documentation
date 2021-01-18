@@ -16,7 +16,7 @@ info:
     url: 'https://koust.net/contact/'
   termsOfService: 'https://koust.net/conditions-generales-de-vente/'
 servers:
-  - url: 'https://auth.koustapp.com'
+  - url: 'https://auth.koustapp.com/apex/rest/public_authentication'
     description: Auth URL
 paths:
   /generate_client:
