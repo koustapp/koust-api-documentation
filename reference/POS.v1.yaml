@@ -3,7 +3,7 @@ info:
   title: POS
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://api.koustapp.com'
 paths:
   '/users/{userId}':
     parameters:
