@@ -168,6 +168,41 @@ paths:
               schema:
                 type: object
                 properties: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Invalid client_id:
+                  value:
+                    message: Please provide a valid client_id in body.
+                Invalid client_secret:
+                  value:
+                    message: Please provide a valid client_secret in body.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Bearer:
+                  value:
+                    message: Please provide a valid bearer token.
+                Invalid access token:
+                  value:
+                    message: 'This access token is not linked to this user, please retry.'
+                Authentication failed:
+                  value:
+                    message: 'Authentication failed, please retry or verify credentials.'
       parameters:
         - schema:
             type: string
