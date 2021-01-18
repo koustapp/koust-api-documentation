@@ -27,7 +27,7 @@ paths:
         '200':
           description: OK
       tags:
-        - pos
+        - Cash Register
         - catalog
   /pos/order:
     parameters: []
@@ -38,11 +38,11 @@ paths:
         '200':
           description: OK
       tags:
-        - pos
+        - Cash Register
         - orders
 components:
   schemas: {}
 tags:
-  - name: pos
+  - name: Cash Register
   - name: catalog
   - name: orders
