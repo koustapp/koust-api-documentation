@@ -140,6 +140,7 @@ paths:
           in: query
           name: client_secret
           required: true
+        - $ref: '#/components/parameters/Content-Type'
       tags:
         - oauth2.0
         - access_token
@@ -157,6 +158,7 @@ paths:
           name: Authorization
           required: true
           description: Bearer token
+        - $ref: '#/components/parameters/Content-Type'
       description: Use this endpoint to refresh your expired token.
       requestBody:
         content:
