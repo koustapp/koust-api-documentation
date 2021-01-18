@@ -2,8 +2,21 @@ openapi: 3.0.0
 info:
   title: POS
   version: '1.0'
+  contact:
+    name: Koust Support
+    url: 'https://koust.net/contact/'
+    email: contact@koust.fr
+  termsOfService: 'https://koust.net/conditions-generales-de-vente/'
+  description: |-
+    Use Koust API to create a custom integration with your POS.
+
+    To use Koust API, you'll need to:
+
+    - Use the access token ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml))
+
+    If you have questions, we're available at [contact@koust.fr](mailto:contact@koust.fr) to help.
 servers:
-  - url: 'https://api.koustapp.com'
+  - url: 'https://api.koustapp.com/apex/rest/public_api'
 paths: {}
 components:
   schemas: {}
