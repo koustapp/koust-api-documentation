@@ -125,18 +125,18 @@ components:
     Token-Response:
       title: Token Response
       type: object
+      x-examples:
+        Example:
+          access_token: string
+          token_type: bearer
+          expires_in: int
       properties:
         access_token:
           type: string
         token_type:
           type: string
         expires_in:
-          type: string
-      x-examples:
-        Example:
-          access_token: string
-          token_type: bearer
-          expires_in: string
+          type: number
   securitySchemes: {}
   parameters:
     Content-Type:
@@ -145,6 +145,7 @@ components:
       required: true
       schema:
         type: string
-      description: application/json
+        default: application/json
+      description: Resource MIME
 tags:
   - name: OAuth2.0
