@@ -32,6 +32,7 @@ paths:
           in: header
           name: Content-Type
           description: application/json
+          required: true
       requestBody:
         content:
           application/json:
@@ -71,10 +72,12 @@ paths:
             type: string
           in: query
           name: client_id
+          required: true
         - schema:
             type: string
           in: query
           name: client_secret
+          required: true
 components:
   schemas:
     Client-Response:
