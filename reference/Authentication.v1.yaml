@@ -91,6 +91,35 @@ paths:
                     access_token: 2ys6njd9OCmfsAv-fRKsdw
                     token_type: bearer
                     expires_in: 3600
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Invalid client_id:
+                  value:
+                    message: Please provide a valid client_id parameter.
+                Invalid client_secret:
+                  value:
+                    message: Please provide a valid client_secret parameter.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Authentication failed:
+                  value:
+                    message: 'Authentication failed, please retry or verify credentials.'
       description: |-
         Use access token to authenticate on Koust Endpoints, access token is link to a Koust user account.
 
@@ -108,6 +137,9 @@ paths:
           in: query
           name: client_secret
           required: true
+      tags:
+        - oauth2.0
+        - access_token
   /refresh_token:
     post:
       summary: Refresh Access Token
@@ -175,3 +207,5 @@ components:
       description: Resource MIME
 tags:
   - name: OAuth2.0
+  - name: oauth2.0
+  - name: access_token
