@@ -9,12 +9,24 @@ servers:
 paths:
   generate_client:
     parameters: []
-    get:
-      summary: Get Credentials
-      tags:
-        - OAuth2.0
-      operationId: get-client-credentials
+    post:
+      summary: ''
+      operationId: postgenerate_client
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-Response'
       description: Retrieve the client_id and client_secret needed to obtain an access token.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
       requestBody:
         content:
           application/json:
@@ -25,36 +37,7 @@ paths:
                   type: string
                 password:
                   type: string
-            examples:
-              Example:
-                value:
-                  username: contact@koustuser.fr
-                  password: 2efb#457
         description: The username and password used to connect on Koust
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Client-Response'
-              examples:
-                Example:
-                  value:
-                    client_id: GxXjEJQ8Y0XQVYODVfFTIU..
-                    client_secret: BHHhx6qz13T3rYIk7dOerQ..
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: Content-Type
-          description: application/json
-    post:
-      summary: ''
-      operationId: postgenerate_client
-      responses:
-        '200':
-          description: OK
 components:
   schemas:
     Client-Response:
