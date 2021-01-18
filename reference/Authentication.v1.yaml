@@ -73,6 +73,9 @@ paths:
                   type: string
                 password:
                   type: string
+              required:
+                - username
+                - password
         description: The username and password used to connect on Koust
       tags:
         - oauth2.0
@@ -151,6 +154,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-Response'
+              examples:
+                Example:
+                  value:
+                    client_id: GxKjEJQ8Y0XQVYODVzFTIA..
+                    client_secret: BHHhx6ql13T3qYIk7dOeqQ..
       parameters:
         - schema:
             type: string
@@ -179,15 +191,18 @@ components:
     Client-Response:
       title: Client Response
       type: object
+      x-examples:
+        Example:
+          client_id: string
+          client_secret: string
       properties:
         client_id:
           type: string
         client_secret:
           type: string
-      x-examples:
-        Example:
-          client_id: string
-          client_secret: string
+      required:
+        - client_id
+        - client_secret
     Token-Response:
       title: Token Response
       type: object
