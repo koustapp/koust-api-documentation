@@ -20,6 +20,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Client-Response'
+              examples:
+                Example:
+                  value:
+                    client_id: GxKjEJQ8Y0XQVYODVzFTIA..
+                    client_secret: BHHhx6ql13T3qYIk7dOeqQ..
       description: Retrieve the client_id and client_secret needed to obtain an access token.
       parameters:
         - schema:
@@ -38,6 +43,38 @@ paths:
                 password:
                   type: string
         description: The username and password used to connect on Koust
+  /get_access_token:
+    post:
+      summary: Get Access Token
+      operationId: get_access_token
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token-Response'
+              examples:
+                Example:
+                  value:
+                    access_token: 2ys6njd9OCmfsAv-fRKsdw
+                    token_type: bearer
+                    expires_in: 3600
+      description: |-
+        Use access token to authenticate on Koust Endpoints, access token is link to a Koust user account.
+
+        Note:
+
+         - Access Tokens expire after 1 hour.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: client_id
+        - schema:
+            type: string
+          in: query
+          name: client_secret
 components:
   schemas:
     Client-Response:
