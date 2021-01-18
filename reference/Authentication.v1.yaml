@@ -74,6 +74,9 @@ paths:
                 password:
                   type: string
         description: The username and password used to connect on Koust
+      tags:
+        - oauth2.0
+        - access_token
   /get_access_token:
     post:
       summary: Get Access Token
@@ -166,6 +169,9 @@ paths:
                   client_id: GxKjEJQ8Y0XQVYODVzFTIA..
                   client_secret: BHHhx6ql13T3qYIk7dOeqQ..
         description: The client_id and client_secret of the user
+      tags:
+        - oauth2.0
+        - access_token
 components:
   schemas:
     Client-Response:
