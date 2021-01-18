@@ -2,7 +2,19 @@ openapi: 3.0.0
 info:
   title: KOUST OAUTH2.0
   version: '1.0'
-  description: ''
+  description: |-
+    Use your application's username and password to authorize using OAuth.
+
+    To retrieve the access token, you'll need to access Koust data:
+
+    To retrieve the Client credentials, make a POST request ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml/paths/~1generate_client/post)).
+
+    To retrieve the access token, make a POST request ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml/paths/~1get_access_token/post)).
+  contact:
+    name: Koust Support
+    email: contact@koust.fr
+    url: 'https://koust.net/contact/'
+  termsOfService: 'https://koust.net/conditions-generales-de-vente/'
 servers:
   - url: 'https://koustapp.com/apex/rest/public_authentication'
     description: Auth URL
