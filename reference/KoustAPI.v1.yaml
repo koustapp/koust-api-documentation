@@ -17,6 +17,32 @@ info:
     If you have questions, we're available at [contact@koust.fr](mailto:contact@koust.fr) to help.
 servers:
   - url: 'https://api.koustapp.com/apex/rest/public_api'
-paths: {}
+paths:
+  /pos/catalog:
+    parameters: []
+    post:
+      summary: Create catalog
+      operationId: post-pos-catalog
+      responses:
+        '200':
+          description: OK
+      tags:
+        - pos
+        - catalog
+  /pos/order:
+    parameters: []
+    post:
+      summary: Create order
+      operationId: post-pos-order
+      responses:
+        '200':
+          description: OK
+      tags:
+        - pos
+        - orders
 components:
   schemas: {}
+tags:
+  - name: pos
+  - name: catalog
+  - name: orders
