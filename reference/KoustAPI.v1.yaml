@@ -35,12 +35,6 @@ paths:
       responses:
         '200':
           description: OK
-    delete:
-      summary: ''
-      operationId: delete-pos-catalog
-      responses:
-        '200':
-          description: OK
   /pos/order:
     parameters: []
     post:
@@ -52,6 +46,18 @@ paths:
       tags:
         - Cash Register
         - orders
+    put:
+      summary: Update Order
+      operationId: put-pos-order
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Cancel Order
+      operationId: delete-pos-order
+      responses:
+        '200':
+          description: OK
 components:
   schemas: {}
 tags:
