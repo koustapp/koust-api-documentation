@@ -46,14 +46,6 @@ paths:
           description: OK
       tags:
         - Orders
-    put:
-      summary: Update Order
-      operationId: put-pos-order
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Orders
     delete:
       summary: Cancel Order
       operationId: delete-pos-order
@@ -64,6 +56,15 @@ paths:
         - Orders
 components:
   schemas: {}
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+      description: Resource MIME
 tags:
   - name: Orders
   - name: Catalogs
