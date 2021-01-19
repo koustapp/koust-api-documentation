@@ -27,8 +27,7 @@ paths:
         '200':
           description: OK
       tags:
-        - Cash Register
-        - catalog
+        - Catalogs
     put:
       summary: Update Catalog
       operationId: put-pos-catalog
@@ -36,8 +35,7 @@ paths:
         '200':
           description: OK
       tags:
-        - Cash Register
-        - catalog
+        - Catalogs
   /pos/order:
     parameters: []
     post:
@@ -47,8 +45,7 @@ paths:
         '200':
           description: OK
       tags:
-        - Cash Register
-        - orders
+        - Orders
     put:
       summary: Update Order
       operationId: put-pos-order
@@ -56,8 +53,7 @@ paths:
         '200':
           description: OK
       tags:
-        - Cash Register
-        - orders
+        - Orders
     delete:
       summary: Cancel Order
       operationId: delete-pos-order
@@ -65,11 +61,9 @@ paths:
         '200':
           description: OK
       tags:
-        - Cash Register
-        - orders
+        - Orders
 components:
   schemas: {}
 tags:
-  - name: Cash Register
-  - name: catalog
-  - name: orders
+  - name: Orders
+  - name: Catalogs
