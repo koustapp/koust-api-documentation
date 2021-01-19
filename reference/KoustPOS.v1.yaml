@@ -29,7 +29,7 @@ paths:
       tags:
         - Catalogs
       parameters:
-        - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
+        - $ref: '#/components/parameters/Content-Type'
     put:
       summary: Update Catalog
       operationId: put-pos-catalog
@@ -39,7 +39,7 @@ paths:
       tags:
         - Catalogs
       parameters:
-        - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
+        - $ref: '#/components/parameters/Content-Type'
   /pos/order:
     parameters: []
     post:
