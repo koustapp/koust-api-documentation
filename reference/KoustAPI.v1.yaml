@@ -29,6 +29,18 @@ paths:
       tags:
         - Cash Register
         - catalog
+    put:
+      summary: Update Catalog
+      operationId: put-pos-catalog
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: ''
+      operationId: delete-pos-catalog
+      responses:
+        '200':
+          description: OK
   /pos/order:
     parameters: []
     post:
