@@ -39,7 +39,7 @@ paths:
   /pos/order:
     parameters: []
     post:
-      summary: Create order
+      summary: Create Order
       operationId: post-pos-order
       responses:
         '200':
