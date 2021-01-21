@@ -98,7 +98,7 @@ paths:
         - access_token
   /get_access_token:
     post:
-      summary: Get Access Token
+      summary: Get Access Token Dep
       operationId: get_access_token
       responses:
         '200':
@@ -164,7 +164,7 @@ paths:
         - oauth2.0
         - access_token
     get:
-      summary: ''
+      summary: Get Access Token
       operationId: get-get_access_token
       responses:
         '200':
