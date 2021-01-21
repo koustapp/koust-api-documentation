@@ -72,7 +72,7 @@ paths:
                 Authentication failed:
                   value:
                     message: 'Authentication failed, please verify credentials.'
-      description: Retrieve the client_id and client_secret needed to obtain an access token.
+      description: 'Retrieve the client_id and client_secret needed to obtain an access token, this endpoint shows all establishment for the user connected.'
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       requestBody:
