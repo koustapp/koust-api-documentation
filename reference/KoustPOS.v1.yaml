@@ -76,7 +76,7 @@ components:
       description: Informations about the order
       type: object
       x-examples:
-        Example:
+        Order Scope:
           id_cash_register: 0
           tickets:
             - ticket_id: 2535
