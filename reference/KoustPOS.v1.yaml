@@ -215,9 +215,9 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: ''
-          refreshUrl: ''
+          tokenUrl: 'https://api.koustapp.com/apex/rest/public_authentication/get_access_token'
           scopes: {}
+          refreshUrl: 'https://api.koustapp.com/apex/rest/public_authentication/refresh_token'
 tags:
   - name: Orders
   - name: Catalogs
