@@ -197,6 +197,9 @@ paths:
           in: query
           name: client_secret
           required: true
+      tags:
+        - oauth2.0
+        - access_token
   /refresh_token:
     post:
       summary: Refresh Access Token
