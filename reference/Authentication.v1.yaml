@@ -32,7 +32,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Client-Response'
-              examples: {}
+              examples:
+                Example:
+                  value:
+                    - client_id: GxKjEJQ8Y0XQVYODVzFTIA..
+                      client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+                      establishment_name: My restaurant
+                    - client_id: AUISjEJQ8Y0XQVYODMLloA..
+                      client_secret: BHHhx6HGDA3T3qYIk7dOeqQ..
+                      establishment_name: Delivery POS
         '400':
           description: Bad Request
           content:
