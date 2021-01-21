@@ -60,6 +60,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Order-Model'
       description: Create an Order linked to your account.
+      security:
+        - API Key - 1: []
     delete:
       summary: Cancel Order
       operationId: delete-pos-order
@@ -208,6 +210,9 @@ components:
         type: string
         default: ' Bearer YOUR_ACCESS_TOKEN'
       description: Authorization Header
+  securitySchemes:
+    API Key - 1:
+      type: oauth2
 tags:
   - name: Orders
   - name: Catalogs
