@@ -32,11 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Client-Response'
-              examples:
-                Example:
-                  value:
-                    client_id: GxKjEJQ8Y0XQVYODVzFTIA..
-                    client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+              examples: {}
         '400':
           description: Bad Request
           content:
