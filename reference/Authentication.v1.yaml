@@ -163,6 +163,40 @@ paths:
       tags:
         - oauth2.0
         - access_token
+    get:
+      summary: ''
+      operationId: get-get_access_token
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token-Response'
+              examples:
+                Example:
+                  value:
+                    access_token: 2ys6njd9OCmfsAv-fRKsdw
+                    token_type: bearer
+                    expires_in: 3600
+      description: |-
+        Use access token to authenticate on Koust Endpoints, access token is link to a Koust user account.
+
+        Note:
+
+         - Access Tokens expire after 1 hour.
+      parameters:
+        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Content-Type
+        - schema:
+            type: string
+          in: query
+          name: client_id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: client_secret
+          required: true
   /refresh_token:
     post:
       summary: Refresh Access Token
