@@ -243,19 +243,25 @@ components:
   schemas:
     Client-Response:
       title: Client Response
-      type: object
+      type: array
       x-examples:
         Example:
-          client_id: string
-          client_secret: string
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-      required:
-        - client_id
-        - client_secret
+          - client_id: GxKjEJQ8Y0XQVYODVzFTIA..
+            client_secret: BHHhx6ql13T3qYIk7dOeqQ..
+            establishment_name: My restaurant
+          - client_id: AUISjEJQ8Y0XQVYODMLloA..
+            client_secret: BHHhx6HGDA3T3qYIk7dOeqQ..
+            establishment_name: Delivery POS
+      items:
+        type: object
+        properties:
+          client_id:
+            type: string
+          client_secret:
+            type: string
+          establishment_name:
+            type: string
+      description: Array of client_id and client_secret for each establishment linked to your account.
     Token-Response:
       title: Token Response
       type: object
