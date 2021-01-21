@@ -213,6 +213,11 @@ components:
   securitySchemes:
     oauth2:
       type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
 tags:
   - name: Orders
   - name: Catalogs
