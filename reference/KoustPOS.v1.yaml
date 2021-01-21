@@ -53,6 +53,7 @@ paths:
         - Orders
       parameters:
         - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
+        - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -199,6 +200,13 @@ components:
         type: string
         default: application/json
       description: Resource MIME
+    Authorization:
+      name: Authorization
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Authorization Header
 tags:
   - name: Orders
   - name: Catalogs
