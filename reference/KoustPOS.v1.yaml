@@ -30,6 +30,7 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+      description: Use this endpoint to push your orders on Koust.
     put:
       summary: Update Catalog
       operationId: put-pos-catalog
@@ -52,6 +53,12 @@ paths:
         - Orders
       parameters:
         - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order-Model'
+      description: Create an Order linked to your account.
     delete:
       summary: Cancel Order
       operationId: delete-pos-order
@@ -61,7 +68,128 @@ paths:
       tags:
         - Orders
 components:
-  schemas: {}
+  schemas:
+    Order-Model:
+      description: Informations about the order
+      type: object
+      properties:
+        id_cash_register:
+          type: number
+        tickets:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - ticket_id
+              - ticket_date
+            properties:
+              ticket_id:
+                type: number
+              ticket_date:
+                type: string
+                minLength: 1
+              dishes:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - dish_id
+                    - dish_name
+                    - dish_price_excl_tax
+                    - dish_vat
+                    - dish_quantity
+                    - dish_canceled_reason
+                  properties:
+                    dish_id:
+                      type: number
+                    dish_name:
+                      type: string
+                      minLength: 1
+                    dish_price_excl_tax:
+                      type: number
+                    dish_vat:
+                      type: number
+                    dish_quantity:
+                      type: number
+                    dish_canceled_reason:
+                      type: number
+                    dish_options:
+                      type: array
+                      uniqueItems: true
+                      minItems: 1
+                      items:
+                        required:
+                          - option_id
+                          - option_name
+                          - option_quantity
+                        properties:
+                          option_id:
+                            type: string
+                            minLength: 1
+                          option_name:
+                            type: string
+                            minLength: 1
+                          option_quantity:
+                            type: number
+        discounts:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - discount_name
+              - discount_amount
+            properties:
+              discount_name:
+                type: string
+                minLength: 1
+              discount_amount:
+                type: number
+        charges:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - charge_name
+              - charge_amount
+            properties:
+              charge_name:
+                type: string
+                minLength: 1
+              charge_amount:
+                type: number
+      required:
+        - id_cash_register
+        - tickets
+        - discounts
+        - charges
+      x-examples:
+        Example:
+          id_cash_register: 0
+          tickets:
+            - ticket_id: 2535
+              ticket_date: '2021-01-18'
+              dishes:
+                - dish_id: 1841
+                  dish_name: Tiramisu speculoos
+                  dish_price_excl_tax: 10
+                  dish_vat: 0.2
+                  dish_quantity: 1
+                  dish_canceled_reason: 1
+                  dish_options:
+                    - option_id: A120
+                      option_name: Cocoa supplement
+                      option_quantity: 3
+          discounts:
+            - discount_name: 20%OFF
+              discount_amount: 2
+          charges:
+            - charge_name: Delivery fee
+              charge_amount: 1.99
+      title: Order
   parameters:
     Content-Type:
       name: Content-Type
