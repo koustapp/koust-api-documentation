@@ -75,100 +75,6 @@ components:
     Order-Model:
       description: Informations about the order
       type: object
-      properties:
-        id_cash_register:
-          type: number
-        tickets:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-              - ticket_id
-              - ticket_date
-            properties:
-              ticket_id:
-                type: number
-              ticket_date:
-                type: string
-                minLength: 1
-              dishes:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  required:
-                    - dish_id
-                    - dish_name
-                    - dish_price_excl_tax
-                    - dish_vat
-                    - dish_quantity
-                    - dish_canceled_reason
-                  properties:
-                    dish_id:
-                      type: number
-                    dish_name:
-                      type: string
-                      minLength: 1
-                    dish_price_excl_tax:
-                      type: number
-                    dish_vat:
-                      type: number
-                    dish_quantity:
-                      type: number
-                    dish_canceled_reason:
-                      type: number
-                    dish_options:
-                      type: array
-                      uniqueItems: true
-                      minItems: 1
-                      items:
-                        required:
-                          - option_id
-                          - option_name
-                          - option_quantity
-                        properties:
-                          option_id:
-                            type: string
-                            minLength: 1
-                          option_name:
-                            type: string
-                            minLength: 1
-                          option_quantity:
-                            type: number
-        discounts:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-              - discount_name
-              - discount_amount
-            properties:
-              discount_name:
-                type: string
-                minLength: 1
-              discount_amount:
-                type: number
-        charges:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-              - charge_name
-              - charge_amount
-            properties:
-              charge_name:
-                type: string
-                minLength: 1
-              charge_amount:
-                type: number
-      required:
-        - id_cash_register
-        - tickets
-        - discounts
-        - charges
       x-examples:
         Example:
           id_cash_register: 0
@@ -193,6 +99,99 @@ components:
             - charge_name: Delivery fee
               charge_amount: 1.99
       title: Order
+      properties:
+        id_cash_register:
+          type: number
+        tickets:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            type: object
+            properties:
+              ticket_id:
+                type: number
+              ticket_date:
+                type: string
+                minLength: 1
+              dishes:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    dish_id:
+                      type: number
+                    dish_name:
+                      type: string
+                      minLength: 1
+                    dish_price_excl_tax:
+                      type: number
+                    dish_vat:
+                      type: number
+                    dish_quantity:
+                      type: number
+                    dish_canceled_reason:
+                      type: number
+                    dish_options:
+                      type: array
+                      uniqueItems: true
+                      minItems: 1
+                      items:
+                        type: object
+                        properties:
+                          option_id:
+                            type: string
+                            minLength: 1
+                          option_name:
+                            type: string
+                            minLength: 1
+                          option_quantity:
+                            type: number
+                        required:
+                          - option_id
+                          - option_name
+                          - option_quantity
+                  required:
+                    - dish_id
+                    - dish_name
+                    - dish_price_excl_tax
+                    - dish_quantity
+            required:
+              - ticket_id
+              - ticket_date
+        discounts:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            type: object
+            properties:
+              discount_name:
+                type: string
+                minLength: 1
+              discount_amount:
+                type: number
+            required:
+              - discount_amount
+        charges:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            type: object
+            properties:
+              charge_name:
+                type: string
+                minLength: 1
+              charge_amount:
+                type: number
+            required:
+              - charge_amount
+      required:
+        - id_cash_register
+        - tickets
   parameters:
     Content-Type:
       name: Content-Type
