@@ -41,11 +41,11 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-  '/pos/order/{ORDER_ID}':
+  '/pos/order/{order_id}':
     parameters:
       - schema:
           type: string
-        name: ORDER_ID
+        name: order_id
         in: path
         required: true
     post:
