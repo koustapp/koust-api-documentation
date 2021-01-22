@@ -75,35 +75,14 @@ paths:
 components:
   schemas:
     Order-Model:
-      description: Informations about the order
+      description: ''
       type: object
-      x-examples:
-        Order Scope:
-          id_cash_register: 0
-          tickets:
-            - ticket_id: 2535
-              ticket_date: '2021-01-18'
-              dishes:
-                - dish_id: 1841
-                  dish_name: Tiramisu speculoos
-                  dish_price_excl_tax: 10
-                  dish_vat: 0.2
-                  dish_quantity: 1
-                  dish_canceled_reason: 1
-                  dish_options:
-                    - option_id: A120
-                      option_name: Cocoa supplement
-                      option_quantity: 3
-          discounts:
-            - discount_name: 20%OFF
-              discount_amount: 2
-          charges:
-            - charge_name: Delivery fee
-              charge_amount: 1.99
-      title: Order
       properties:
         cash_register_id:
           type: number
+        order_date:
+          type: string
+          minLength: 1
         tickets:
           type: array
           uniqueItems: true
@@ -113,7 +92,7 @@ components:
             properties:
               ticket_id:
                 type: number
-              ticket_date:
+              consumption_mode:
                 type: string
                 minLength: 1
               dishes:
@@ -130,12 +109,13 @@ components:
                       minLength: 1
                     dish_price_excl_tax:
                       type: number
+                    dish_origin_price_excl_tax:
+                      type: number
                     dish_vat:
                       type: number
                     dish_quantity:
                       type: number
-                    dish_canceled_reason:
-                      type: number
+                    dish_canceled_reason: {}
                     dish_options:
                       type: array
                       uniqueItems: true
@@ -149,6 +129,8 @@ components:
                           option_name:
                             type: string
                             minLength: 1
+                          option_price_exl_tax:
+                            type: number
                           option_quantity:
                             type: number
                         required:
@@ -159,41 +141,72 @@ components:
                     - dish_id
                     - dish_name
                     - dish_price_excl_tax
+                    - dish_origin_price_excl_tax
                     - dish_quantity
+              global_discounts:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    discount_name:
+                      type: string
+                      minLength: 1
+                    discount_amount:
+                      type: number
+                  required:
+                    - discount_name
+                    - discount_amount
+              global_charges:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    charge_name:
+                      type: string
+                      minLength: 1
+                    charge_amount:
+                      type: number
+                  required:
+                    - charge_name
+                    - charge_amount
             required:
               - ticket_id
-              - ticket_date
-        discounts:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            type: object
-            properties:
-              discount_name:
-                type: string
-                minLength: 1
-              discount_amount:
-                type: number
-            required:
-              - discount_amount
-        charges:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            type: object
-            properties:
-              charge_name:
-                type: string
-                minLength: 1
-              charge_amount:
-                type: number
-            required:
-              - charge_amount
+              - consumption_mode
       required:
         - cash_register_id
+        - order_date
         - tickets
+      x-examples:
+        Order scope:
+          cash_register_id: 0
+          order_date: '2021-01-18'
+          tickets:
+            - ticket_id: 2535
+              consumption_mode: delivery
+              dishes:
+                - dish_id: 1841
+                  dish_name: Tiramisu speculoos
+                  dish_price_excl_tax: 12
+                  dish_origin_price_excl_tax: 12
+                  dish_vat: 0.2
+                  dish_quantity: 1
+                  dish_canceled_reason: null
+                  dish_options:
+                    - option_id: A120
+                      option_name: Cocoa supplement
+                      option_price_exl_tax: 1.5
+                      option_quantity: 3
+              global_discounts:
+                - discount_name: 20%OFF
+                  discount_amount: 2
+              global_charges:
+                - charge_name: Delivery fee
+                  charge_amount: 1.99
+      title: Order
   parameters:
     Content-Type:
       name: Content-Type
