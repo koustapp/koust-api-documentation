@@ -61,6 +61,33 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Order-Model'
+            examples:
+              Order scope:
+                value:
+                  cash_register_id: 0
+                  order_date: '2021-01-18'
+                  tickets:
+                    - ticket_id: 2535
+                      consumption_mode: delivery
+                      dishes:
+                        - dish_id: 1841
+                          dish_name: Tiramisu speculoos
+                          dish_price_excl_tax: 12
+                          dish_origin_price_excl_tax: 12
+                          dish_vat: 0.2
+                          dish_quantity: 1
+                          dish_canceled_reason: null
+                          dish_options:
+                            - option_id: A120
+                              option_name: Cocoa supplement
+                              option_price_exl_tax: 1.5
+                              option_quantity: 3
+                      global_discounts:
+                        - discount_name: 20%OFF
+                          discount_amount: 2
+                      global_charges:
+                        - charge_name: Delivery fee
+                          charge_amount: 1.99
       description: Create an Order linked to your account.
       security:
         - oauth2: []
