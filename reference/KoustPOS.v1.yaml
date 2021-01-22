@@ -65,6 +65,7 @@ paths:
               Order scope:
                 value:
                   cash_register_id: 0
+                  order_id: A9862Nb2
                   order_date: '2021-01-18'
                   tickets:
                     - ticket_id: 2535
@@ -107,6 +108,9 @@ components:
       properties:
         cash_register_id:
           type: number
+        order_id:
+          type: string
+          minLength: 1
         order_date:
           type: string
           minLength: 1
@@ -142,7 +146,8 @@ components:
                       type: number
                     dish_quantity:
                       type: number
-                    dish_canceled_reason: {}
+                    dish_canceled_reason:
+                      type: string
                     dish_options:
                       type: array
                       uniqueItems: true
@@ -202,14 +207,16 @@ components:
                     - charge_amount
             required:
               - ticket_id
-              - consumption_mode
+              - dishes
       required:
         - cash_register_id
+        - order_id
         - order_date
         - tickets
       x-examples:
         Order scope:
           cash_register_id: 0
+          order_id: A9862Nb2
           order_date: '2021-01-18'
           tickets:
             - ticket_id: 2535
