@@ -111,11 +111,21 @@ paths:
     delete:
       summary: Cancel Order
       operationId: delete-pos-order
-      responses:
-        '200':
-          description: OK
       tags:
         - Orders
+      description: Delete an order
+      responses:
+        '204':
+          description: Successfully deleted
+        '400':
+          description: An error has occured
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
 components:
   schemas:
     Order-Model:
