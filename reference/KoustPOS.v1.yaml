@@ -48,6 +48,7 @@ paths:
         name: order_id
         in: path
         required: true
+        description: The order_id you used when creating the order
     post:
       summary: Create Order
       operationId: post-pos-order
