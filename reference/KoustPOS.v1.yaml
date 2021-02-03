@@ -69,25 +69,35 @@ paths:
             examples:
               Order scope:
                 value:
-                  cash_register_id: 0
-                  order_id: A9862Nb2
+                  id_cash_register: '0'
+                  order_id: POIN20210118105740
                   order_date: '2021-01-18'
                   tickets:
-                    - ticket_id: 2535
-                      consumption_mode: delivery
+                    - ticket_id: '2517'
+                      consumption_mode: '2'
                       dishes:
-                        - dish_id: 1841
-                          dish_name: Tiramisu speculoos
-                          dish_price_excl_tax: 12
-                          dish_origin_price_excl_tax: 12
-                          dish_vat: 0.2
+                        - dish_id: '1839'
+                          dish_name: Burger Veggie
+                          dish_price_excl_tax: 10.81
+                          dish_origin_price_excl_tax: 10.81
+                          product_vat: 0.1
+                          dish_canceled_reason: '200'
                           dish_quantity: 1
-                          dish_canceled_reason: null
                           dish_options:
-                            - option_id: A120
-                              option_name: Cocoa supplement
-                              option_price_exl_tax: 1.5
-                              option_quantity: 3
+                            - option_id: '183209'
+                              option_name: Moutarde
+                              option_quantity: 1
+                              option_price_exl_tax: 0
+                    - ticket_id: '2517'
+                      consumption_mode: 2
+                      dishes:
+                        - dish_id: '1581'
+                          dish_name: Pizza 31cm
+                          dish_price_excl_tax: 11.72
+                          dish_origin_price_excl_tax: 11.72
+                          product_vat: 0.1
+                          dish_canceled_reason: '200'
+                          dish_quantity: 1
                       global_discounts:
                         - discount_name: 20%OFF
                           discount_amount: 2
@@ -108,11 +118,12 @@ paths:
 components:
   schemas:
     Order-Model:
-      description: ''
+      description: A configuration for an order
       type: object
       properties:
-        cash_register_id:
-          type: number
+        id_cash_register:
+          type: string
+          minLength: 1
         order_id:
           type: string
           minLength: 1
@@ -127,7 +138,8 @@ components:
             type: object
             properties:
               ticket_id:
-                type: number
+                type: string
+                minLength: 1
               consumption_mode:
                 type: string
                 minLength: 1
@@ -139,45 +151,29 @@ components:
                   type: object
                   properties:
                     dish_id:
-                      type: number
+                      type: string
+                      minLength: 1
                     dish_name:
                       type: string
                       minLength: 1
                     dish_price_excl_tax:
-                      type: number
+                      type: string
+                      minLength: 1
                     dish_origin_price_excl_tax:
-                      type: number
+                      type: string
+                      minLength: 1
                     dish_vat:
-                      type: number
-                    dish_quantity:
-                      type: number
+                      type: string
+                      minLength: 1
                     dish_canceled_reason:
                       type: string
-                    dish_options:
-                      type: array
-                      uniqueItems: true
-                      minItems: 1
-                      items:
-                        type: object
-                        properties:
-                          option_id:
-                            type: string
-                            minLength: 1
-                          option_name:
-                            type: string
-                            minLength: 1
-                          option_price_exl_tax:
-                            type: number
-                          option_quantity:
-                            type: number
-                        required:
-                          - option_id
-                          - option_name
-                          - option_quantity
+                      minLength: 1
+                    dish_quantity:
+                      type: string
+                      minLength: 1
                   required:
                     - dish_id
                     - dish_name
-                    - dish_price_excl_tax
                     - dish_origin_price_excl_tax
                     - dish_quantity
               global_discounts:
@@ -193,7 +189,6 @@ components:
                     discount_amount:
                       type: number
                   required:
-                    - discount_name
                     - discount_amount
               global_charges:
                 type: array
@@ -208,43 +203,14 @@ components:
                     charge_amount:
                       type: number
                   required:
-                    - charge_name
                     - charge_amount
             required:
               - ticket_id
-              - dishes
       required:
-        - cash_register_id
+        - id_cash_register
         - order_id
         - order_date
         - tickets
-      x-examples:
-        Order scope:
-          cash_register_id: 0
-          order_id: A9862Nb2
-          order_date: '2021-01-18'
-          tickets:
-            - ticket_id: 2535
-              consumption_mode: delivery
-              dishes:
-                - dish_id: 1841
-                  dish_name: Tiramisu speculoos
-                  dish_price_excl_tax: 12
-                  dish_origin_price_excl_tax: 12
-                  dish_vat: 0.2
-                  dish_quantity: 1
-                  dish_canceled_reason: null
-                  dish_options:
-                    - option_id: A120
-                      option_name: Cocoa supplement
-                      option_price_exl_tax: 1.5
-                      option_quantity: 3
-              global_discounts:
-                - discount_name: 20%OFF
-                  discount_amount: 2
-              global_charges:
-                - charge_name: Delivery fee
-                  charge_amount: 1.99
       title: Order
   parameters:
     Content-Type:
