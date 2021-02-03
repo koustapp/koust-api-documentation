@@ -105,7 +105,15 @@ paths:
                       global_charges:
                         - charge_name: Delivery fee
                           charge_amount: 1.99
-      description: Create an Order linked to your account.
+      description: |-
+        Create an Order linked to your account.
+
+
+        Consumption mode can be : 
+
+        1 -> Delivery
+        2 -> Take Away
+        3 -> Eat in
       security:
         - oauth2: []
     delete:
