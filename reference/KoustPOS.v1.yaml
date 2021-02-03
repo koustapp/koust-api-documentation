@@ -67,7 +67,7 @@ paths:
             schema:
               $ref: '#/components/schemas/Order-Model'
             examples:
-              Order scope:
+              Order Scope:
                 value:
                   id_cash_register: '0'
                   order_id: POIN20210118105740
