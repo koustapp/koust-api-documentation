@@ -75,7 +75,7 @@ paths:
               Order Scope:
                 value:
                   id_cash_register: '0'
-                  order_id: POIN20210118105740
+                  order_id: 72321axcF261
                   order_date: '2021-01-18'
                   tickets:
                     - ticket_id: '2517'
