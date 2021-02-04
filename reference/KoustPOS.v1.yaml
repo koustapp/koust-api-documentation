@@ -31,6 +31,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       description: Use this endpoint to push your orders on Koust.
+      security:
+        - oauth2: []
     put:
       summary: Update Catalog
       operationId: put-pos-catalog
@@ -42,6 +44,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       description: Use this endpoint to update product informations
+      security:
+        - oauth2: []
   /pos/order:
     parameters: []
     post:
@@ -168,6 +172,8 @@ paths:
           name: order_id
           description: The order_id you used when creating the order
           required: true
+      security:
+        - oauth2: []
   /pos/cash_registers:
     get:
       summary: List Cash Registers
@@ -190,6 +196,8 @@ paths:
                 $ref: '#/components/schemas/Error-Model'
       operationId: get-pos-cash_registers
       description: Use this endpoint to retrieve the list of availaible cash registers.
+      security:
+        - oauth2: []
 components:
   schemas:
     Order-Model:
