@@ -175,13 +175,19 @@ paths:
         - Cash Registers
       responses:
         '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cash-Register-Model'
+        '401':
           description: Cannot authenticate user
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error-Model'
-        '401':
-          description: Unauthorized
       operationId: get-pos-cash_registers
       description: Use this endpoint to retrieve the list of availaible cash registers.
 components:
@@ -297,6 +303,15 @@ components:
       type: object
       properties:
         message:
+          type: string
+      description: The error object you'll receive when something went wrong.
+    Cash-Register-Model:
+      title: Cash-Register-Model
+      type: object
+      properties:
+        id:
+          type: number
+        name:
           type: string
       description: The error object you'll receive when something went wrong.
   parameters:
