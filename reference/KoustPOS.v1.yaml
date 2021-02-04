@@ -120,6 +120,20 @@ paths:
         0 -> Offered
         1 -> Loose
         2 -> Employee
+
+        <!--
+        type: tab
+        title: Koust V1
+        -->
+
+        Use this amazing API to **be connected**.
+
+        - [Getting Started]()
+        - [API Reference]()
+        - [Try out API]()
+
+
+        <!-- type: tab-end -->
       security:
         - oauth2: []
     delete:
