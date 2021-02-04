@@ -198,6 +198,8 @@ paths:
       description: Use this endpoint to retrieve the list of availaible cash registers.
       security:
         - oauth2: []
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
 components:
   schemas:
     Order-Model:
