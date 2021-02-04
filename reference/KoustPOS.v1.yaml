@@ -139,10 +139,10 @@ components:
     Order-Model:
       description: A configuration for an order
       type: object
+      title: Order
       properties:
         id_cash_register:
-          type: string
-          minLength: 1
+          type: number
         order_id:
           type: string
           minLength: 1
@@ -160,8 +160,7 @@ components:
                 type: string
                 minLength: 1
               consumption_mode:
-                type: string
-                minLength: 1
+                type: number
               dishes:
                 type: array
                 uniqueItems: true
@@ -176,24 +175,19 @@ components:
                       type: string
                       minLength: 1
                     dish_price_excl_tax:
-                      type: string
-                      minLength: 1
+                      type: number
                     dish_origin_price_excl_tax:
-                      type: string
-                      minLength: 1
+                      type: number
                     dish_vat:
-                      type: string
-                      minLength: 1
+                      type: number
                     dish_canceled_reason:
-                      type: string
-                      minLength: 1
+                      type: number
                     dish_quantity:
-                      type: string
-                      minLength: 1
+                      type: number
                   required:
                     - dish_id
                     - dish_name
-                    - dish_origin_price_excl_tax
+                    - dish_price_excl_tax
                     - dish_quantity
               global_discounts:
                 type: array
@@ -230,7 +224,6 @@ components:
         - order_id
         - order_date
         - tickets
-      title: Order
   parameters:
     Content-Type:
       name: Content-Type
