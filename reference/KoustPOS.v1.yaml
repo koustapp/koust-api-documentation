@@ -41,14 +41,8 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-  '/pos/order/{order_id}':
-    parameters:
-      - schema:
-          type: string
-        name: order_id
-        in: path
-        description: The order_id you used when creating the order
-        required: true
+  /pos/order:
+    parameters: []
     post:
       summary: Create Order
       operationId: post-pos-order
@@ -166,6 +160,13 @@ paths:
                 properties:
                   message:
                     type: string
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: order_id
+          description: The order_id you used when creating the order
+          required: true
 components:
   schemas:
     Order-Model:
