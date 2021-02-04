@@ -30,6 +30,7 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Authorization'
       description: Use this endpoint to push your orders on Koust.
       security:
         - oauth2: []
@@ -43,6 +44,7 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Authorization'
       description: Use this endpoint to update product informations
       security:
         - oauth2: []
@@ -172,6 +174,7 @@ paths:
           name: order_id
           description: The order_id you used when creating the order
           required: true
+        - $ref: '#/components/parameters/Authorization'
       security:
         - oauth2: []
   /pos/cash_registers:
@@ -200,6 +203,7 @@ paths:
         - oauth2: []
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Authorization'
 components:
   schemas:
     Order-Model:
