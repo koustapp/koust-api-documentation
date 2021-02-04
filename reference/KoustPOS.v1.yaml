@@ -53,8 +53,12 @@ paths:
       summary: Create Order
       operationId: post-pos-order
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order-Model'
         '401':
           description: Cannot authenticate user
       tags:
