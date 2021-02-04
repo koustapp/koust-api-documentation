@@ -233,7 +233,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Client-Response'
+              type: object
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
             examples:
               Example:
                 value:
