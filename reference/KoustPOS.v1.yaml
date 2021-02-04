@@ -59,8 +59,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order-Model'
+        '400':
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error-Model'
         '401':
           description: Cannot authenticate user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error-Model'
       tags:
         - Orders
       parameters:
@@ -264,6 +274,13 @@ components:
         - order_id
         - order_date
         - tickets
+    Error-Model:
+      title: Error-Model
+      type: object
+      properties:
+        message:
+          type: string
+      description: The error object you'll receive when something went wrong.
   parameters:
     Content-Type:
       name: Content-Type
