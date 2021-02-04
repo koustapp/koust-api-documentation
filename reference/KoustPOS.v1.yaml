@@ -106,7 +106,7 @@ paths:
                         - charge_name: Delivery fee
                           charge_amount: 1.99
       description: |-
-        Create an Order linked to your account.
+        **Create an Order linked to your account.**
 
 
         <!--
