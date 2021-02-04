@@ -109,29 +109,27 @@ paths:
         Create an Order linked to your account.
 
 
-        Consumption mode can be : 
+        <!--
+        type: tab
+        title: Comsumption mode
+        -->
 
-        1 -> Delivery
-        2 -> Take Away
-        3 -> Eat in
+        **Consumption mode** codes are :
 
-        Canceled reason codes are : 
-
-        0 -> Offered
-        1 -> Loose
-        2 -> Employee
+        - **1** -> Delivery
+        - **2** -> Take Away
+        - **3** -> Eat in
 
         <!--
         type: tab
-        title: Koust V1
+        title: Canceled reasons
         -->
 
-        Use this amazing API to **be connected**.
+        **Cancel reasons** codes are :
 
-        - [Getting Started]()
-        - [API Reference]()
-        - [Try out API]()
-
+        - **0** -> Offered
+        - **1** -> Loosed
+        - **2** -> Employee
 
         <!-- type: tab-end -->
       security:
