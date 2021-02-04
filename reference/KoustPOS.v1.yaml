@@ -206,6 +206,24 @@ components:
                       type: number
                     dish_quantity:
                       type: number
+                    dish_options:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          option_id:
+                            type: string
+                          option_name:
+                            type: string
+                          option_quantity:
+                            type: number
+                          option_price_excl_tax:
+                            type: number
+                        required:
+                          - option_id
+                          - option_name
+                          - option_quantity
+                          - option_price_excl_tax
                   required:
                     - dish_id
                     - dish_name
