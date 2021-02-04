@@ -168,6 +168,16 @@ paths:
           name: order_id
           description: The order_id you used when creating the order
           required: true
+  /pos/cash_registers:
+    get:
+      summary: List Cash Registers
+      tags:
+        - Cash Registers
+      responses:
+        '200':
+          description: List
+      operationId: get-pos-cash_registers
+      description: Use this endpoint to retrieve the list of availaible cash registers.
 components:
   schemas:
     Order-Model:
@@ -311,3 +321,4 @@ components:
 tags:
   - name: Orders
   - name: Catalogs
+  - name: Cash Registers
