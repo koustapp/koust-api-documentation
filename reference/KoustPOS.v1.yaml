@@ -114,6 +114,12 @@ paths:
         1 -> Delivery
         2 -> Take Away
         3 -> Eat in
+
+        Canceled reason codes are : 
+
+        0 -> Offered
+        1 -> Loose
+        2 -> Employee
       security:
         - oauth2: []
     delete:
