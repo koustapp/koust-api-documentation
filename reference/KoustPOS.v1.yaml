@@ -79,7 +79,7 @@ paths:
                   order_date: '2021-01-18'
                   tickets:
                     - ticket_id: '2517'
-                      consumption_mode: '2'
+                      consumption_mode: 2
                       dishes:
                         - dish_id: '1839'
                           dish_name: Burger Veggie
