@@ -41,6 +41,7 @@ paths:
         - Catalogs
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+      description: Use this endpoint to update product informations
   /pos/order:
     parameters: []
     post:
@@ -78,7 +79,7 @@ paths:
             examples:
               Order Scope:
                 value:
-                  id_cash_register: '0'
+                  id_cash_register: 0
                   order_id: 72321axcF261
                   order_date: '2021-01-18'
                   tickets:
@@ -96,7 +97,7 @@ paths:
                             - option_id: '183209'
                               option_name: Moutarde
                               option_quantity: 1
-                              option_price_exl_tax: 0
+                              option_price_excl_tax: 0
                     - ticket_id: '2517'
                       consumption_mode: 2
                       dishes:
