@@ -202,7 +202,6 @@ paths:
       security:
         - oauth2: []
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/Authorization'
 components:
   schemas:
