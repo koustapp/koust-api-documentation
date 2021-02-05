@@ -9,7 +9,7 @@ info:
 
     To retrieve the Client credentials, make a POST request ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml/paths/~1generate_client/post)).
 
-    To retrieve the Access Token, make a POST request ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml/paths/~1get_access_token/post)).
+    To retrieve the Access Token, make a POST request ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml/paths/~1get_access_token/get)).
   contact:
     name: Koust Support
     email: contact@koust.fr
