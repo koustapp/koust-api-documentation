@@ -205,11 +205,11 @@ paths:
         - $ref: '#/components/parameters/Authorization'
   /pos/last_order:
     get:
-      summary: Last order informations
-      tags:
-        - Last Order
+      summary: Get last order info.
       responses: {}
       operationId: get-pos-last_closure
+      tags:
+        - Orders
     parameters: []
 components:
   schemas:
@@ -364,4 +364,3 @@ tags:
   - name: Orders
   - name: Catalogs
   - name: Cash Registers
-  - name: Last Order
