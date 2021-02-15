@@ -206,10 +206,60 @@ paths:
   /pos/last_order:
     get:
       summary: Get last order info.
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  last_closure_id:
+                    type: string
+                    minLength: 1
+                  last_closure_date:
+                    type: string
+                    minLength: 1
+                  total_tickets_for_this_closure:
+                    type: number
+                required:
+                  - last_closure_id
+                  - last_closure_date
+                  - total_tickets_for_this_closure
+              examples:
+                Example:
+                  value:
+                    last_closure_id: '20210118141453'
+                    last_closure_date: '2021-01-18T00:00:00Z'
+                    total_tickets_for_this_closure: 898
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error-Model'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error-Model'
       operationId: get-pos-last_closure
       tags:
         - Orders
+      security:
+        - oauth2: []
+      parameters:
+        - schema:
+            type: number
+          in: header
+          name: cash_register_id
+          required: true
+      description: |-
+        Use this endpoint to check informations about the last order you imported.
+
+        Can be used to verify that no orders are missing in Koust.
     parameters: []
 components:
   schemas:
