@@ -205,7 +205,7 @@ paths:
         - $ref: '#/components/parameters/Authorization'
   /pos/last_order:
     get:
-      summary: Get last order info.
+      summary: Last order informations
       responses:
         '200':
           description: OK
