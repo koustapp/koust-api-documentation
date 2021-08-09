@@ -20,20 +20,6 @@ servers:
 paths:
   /pos/catalog:
     parameters: []
-    post:
-      summary: Create catalog
-      operationId: post-pos-catalog
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Catalogs
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/Authorization'
-      description: Use this endpoint to push your orders on Koust.
-      security:
-        - oauth2: []
     put:
       summary: Update Catalog
       operationId: put-pos-catalog
