@@ -21,7 +21,7 @@ paths:
   /bills:
     parameters: []
     post:
-      summary: ''
+      summary: Get Bills for a period
       operationId: post-bills
       responses:
         '201':
