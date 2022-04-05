@@ -90,10 +90,10 @@ paths:
             examples:
               Example:
                 value:
-                  url_callback: 'https://eoexg7ophwqyq3.m.pipedream.net'
+                  url_callback: string
                   date_interval:
-                    start_from: '2022-01-01'
-                    end_at: '2022-01-30'
+                    start_from: YYYY-MM-DD
+                    end_at: YYYY-MM-DD
           application/xml:
             schema:
               type: object
@@ -137,6 +137,52 @@ components:
               type: string
             establishment_name:
               type: string
+    Webhook_Model:
+      title: Webhook_Model
+      type: array
+      items:
+        type: object
+        properties:
+          invoice:
+            type: string
+          invoice_supplier:
+            type: object
+            properties:
+              supplier_id:
+                type: string
+              supplier_name:
+                type: string
+          invoice_date:
+            type: string
+          delivery_date:
+            type: string
+          deadline_date:
+            type: string
+          invoice_total:
+            type: string
+          invoice_items:
+            type: array
+            items:
+              type: object
+              properties:
+                ingredient_id:
+                  type: string
+                ingredient_name:
+                  type: string
+                ingredient_unit:
+                  type: string
+                ingredient_quantity:
+                  type: string
+                ingredient_price:
+                  type: string
+                ingredient_contenance:
+                  type: string
+                ingredient_contenance_supplier:
+                  type: string
+                ingredient_conditioning_value:
+                  type: string
+                ingredient_supplier_retained:
+                  type: string
   parameters:
     Content-Type:
       name: Content-Type
