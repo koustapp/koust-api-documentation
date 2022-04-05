@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Koust Public API v1
+  version: '1.0'
+  contact:
+    name: Koust Support
+    url: 'https://koust.net/contact/'
+    email: contact@koust.fr
+  termsOfService: 'https://koust.net/conditions-generales-de-vente/'
+  description: |-
+    Use Koust API to create a custom integration with your system.
+
+    To use Koust API, you'll need to:
+
+    - Use the access token ([see details](https://koust.stoplight.io/docs/koust-api-documentation/reference/Authentication.v1.yaml))
+
+    If you have questions, we're available at [contact@koust.fr](mailto:contact@koust.fr) to help.
+servers:
+  - url: 'https://api.koustapp.com/apex/rest/public_api'
+paths:
+  /bills:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-bills
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    Order-Model:
+      description: A configuration for an order
+      type: object
+      title: Order
+      properties:
+        id_cash_register:
+          type: number
+        order_id:
+          type: string
+          minLength: 1
+        order_date:
+          type: string
+          minLength: 1
+        tickets:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            type: object
+            properties:
+              ticket_id:
+                type: string
+                minLength: 1
+              consumption_mode:
+                type: number
+              dishes:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    dish_id:
+                      type: string
+                      minLength: 1
+                    dish_name:
+                      type: string
+                      minLength: 1
+                    dish_price_excl_tax:
+                      type: number
+                    dish_origin_price_excl_tax:
+                      type: number
+                    dish_vat:
+                      type: number
+                    dish_canceled_reason:
+                      type: number
+                    dish_quantity:
+                      type: number
+                    dish_options:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          option_id:
+                            type: string
+                          option_name:
+                            type: string
+                          option_quantity:
+                            type: number
+                          option_price_excl_tax:
+                            type: number
+                        required:
+                          - option_id
+                          - option_name
+                          - option_quantity
+                          - option_price_excl_tax
+                  required:
+                    - dish_id
+                    - dish_name
+                    - dish_price_excl_tax
+                    - dish_quantity
+              global_discounts:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    discount_name:
+                      type: string
+                      minLength: 1
+                    discount_amount:
+                      type: number
+                  required:
+                    - discount_amount
+              global_charges:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    charge_name:
+                      type: string
+                      minLength: 1
+                    charge_amount:
+                      type: number
+                  required:
+                    - charge_amount
+            required:
+              - ticket_id
+      required:
+        - id_cash_register
+        - order_id
+        - order_date
+        - tickets
+    Error-Model:
+      title: Error-Model
+      type: object
+      properties:
+        message:
+          type: string
+      description: The error object you'll receive when something went wrong.
+    Cash-Register-Model:
+      title: Cash-Register-Model
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      description: The error object you'll receive when something went wrong.
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+      description: Resource MIME
+    Authorization:
+      name: Authorization
+      in: header
+      required: true
+      schema:
+        type: string
+        default: ' Bearer YOUR_ACCESS_TOKEN'
+      description: Authorization Header
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://auth.koustapp.com/apex/rest/public_authentication/get_access_token'
+          scopes: {}
+          refreshUrl: 'https://auth.koustapp.com/apex/rest/public_authentication/refresh_token'

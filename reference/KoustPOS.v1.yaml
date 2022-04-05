@@ -397,6 +397,6 @@ components:
           scopes: {}
           refreshUrl: 'https://auth.koustapp.com/apex/rest/public_authentication/refresh_token'
 tags:
-  - name: Orders
+  - name: CashRegisters
   - name: Catalogs
-  - name: Cash Registers
+  - name: Orders
