@@ -24,8 +24,81 @@ paths:
       summary: ''
       operationId: post-bills
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success_Bills_Model'
+              examples:
+                Success:
+                  value:
+                    status: success
+                    message: 'Demande d''extraction prise en compte, vos données vont être envoyées à l''url mentionnée.'
+                    content:
+                      bills_returned: '2'
+                      establishment_name: Restau du coin
+        '400':
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error_Bills_Model'
+              examples:
+                Error url:
+                  value:
+                    status: Failed
+                    message: Un url de retour doit être mentionnée.
+                Error date null:
+                  value:
+                    status: Failed
+                    message: La date de début doit être mentionnée.
+                Error format date:
+                  value:
+                    status: Failed
+                    message: La date de fin ne respecte pas le bon format.
+                Error start date is more recent:
+                  value:
+                    status: Failed
+                    message: La date de fin doit être supérieur à la date de fin.
+                Error content:
+                  value:
+                    status: Failed
+                    message: Veuillez vérifier le contenu de votre requête.
+        '401':
+          description: Cannot authenticate user
+      description: |
+        **Webhook who sends your bills for the chosen dates at the requested url**
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: Resource MIME
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          description: Authorization Header
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bills-Model'
+            examples:
+              Example:
+                value:
+                  url_callback: 'https://eoexg7ophwqyq3.m.pipedream.net'
+                  date_interval:
+                    start_from: '2022-01-01'
+                    end_at: '2022-01-30'
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
 components:
   schemas:
     Order-Model:
@@ -150,6 +223,42 @@ components:
         name:
           type: string
       description: The error object you'll receive when something went wrong.
+    Bills-Model:
+      title: Bills-Model
+      type: object
+      properties:
+        url_callback:
+          type: string
+        date_interval:
+          type: object
+          properties:
+            start_from:
+              type: string
+            end_at:
+              type: string
+    Error_Bills_Model:
+      title: Error_Bills_Model
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+    Success_Bills_Model:
+      title: Success_Bills_Model
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        content:
+          type: object
+          properties:
+            bills_returned:
+              type: string
+            establishment_name:
+              type: string
   parameters:
     Content-Type:
       name: Content-Type
