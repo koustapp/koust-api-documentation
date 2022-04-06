@@ -67,8 +67,10 @@ paths:
                     message: Veuillez vérifier le contenu de votre requête.
         '401':
           description: Cannot authenticate user
-      description: |
+      description: |-
         **Webhook who sends your bills for the chosen dates at the requested url**
+        * The Webhook returns the body containing the bills in json format to the URL you requested. You will find the Webhook answer model at the following link : 
+          [Weebhook-Model](KoustPublic.v1.yaml/components/schemas/Webhook_Model)
       parameters:
         - schema:
             type: string
@@ -94,10 +96,6 @@ paths:
                   date_interval:
                     start_from: YYYY-MM-DD
                     end_at: YYYY-MM-DD
-          application/xml:
-            schema:
-              type: object
-              properties: {}
         description: ''
 components:
   schemas:
