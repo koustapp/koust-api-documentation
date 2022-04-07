@@ -49,6 +49,7 @@ paths:
             type: string
           in: query
           name: search
+        - $ref: '#/components/parameters/Authorization'
       description: 'Use this endpoint to retrieve the list of ingredients. Using pagination is mandatory, you also have the possibility to search by ingredient name.'
 components:
   schemas:
