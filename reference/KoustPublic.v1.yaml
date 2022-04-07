@@ -41,12 +41,6 @@ paths:
           in: query
           name: search
           description: Ingredient name searched
-    post:
-      summary: ''
-      operationId: post-ingredients
-      responses:
-        '200':
-          description: OK
 components:
   schemas:
     User:
