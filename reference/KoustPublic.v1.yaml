@@ -199,6 +199,40 @@ paths:
                         storage_areas: []
                     page: 0
                     elements: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  status:
+                    type: string
+                    minLength: 1
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - status
+                  - message
+                x-examples:
+                  example-1:
+                    status: failure
+                    message: Veuillez saisir un nombre de lignes (pagination).
+              examples:
+                Missing pageNumber parameter:
+                  value:
+                    status: failure
+                    message: Veuillez saisir un numéro de page (pagination).
+                Missing numberOfRows parameter:
+                  value:
+                    status: failure
+                    message: Veuillez saisir un nombre de lignes (pagination).
+        '401':
+          description: Unauthorized
+        '555':
+          description: 'Error, please, contact us.'
       description: Use this endpoint to retrieve the list of ingredients
       parameters:
         - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
