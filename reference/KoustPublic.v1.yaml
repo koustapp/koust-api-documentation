@@ -21,7 +21,7 @@ paths:
   /bills:
     parameters: []
     post:
-      summary: ''
+      summary: Get Bills for a period
       operationId: post-bills
       responses:
         '200':
@@ -51,130 +51,171 @@ paths:
           name: search
         - $ref: '#/components/parameters/Authorization'
       description: 'Use this endpoint to retrieve the list of ingredients. Using pagination is mandatory, you also have the possibility to search by ingredient name.'
+=======
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success_Bills_Model'
+              examples:
+                Success:
+                  value:
+                    status: success
+                    message: 'Demande d''extraction prise en compte, vos données vont être envoyées à l''url mentionnée.'
+                    content:
+                      bills_returned: '2'
+                      establishment_name: Restau du coin
+        '400':
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error_Bills_Model'
+              examples:
+                Error url:
+                  value:
+                    status: Failed
+                    message: Un url de retour doit être mentionnée.
+                Error date null:
+                  value:
+                    status: Failed
+                    message: La date de début doit être mentionnée.
+                Error format date:
+                  value:
+                    status: Failed
+                    message: La date de fin ne respecte pas le bon format.
+                Error start date is more recent:
+                  value:
+                    status: Failed
+                    message: La date de fin doit être supérieur à la date de fin.
+                Error content:
+                  value:
+                    status: Failed
+                    message: Veuillez vérifier le contenu de votre requête.
+        '401':
+          description: Cannot authenticate user
+      description: |-
+        **Webhook who sends your bills for the chosen dates at the requested url**
+        * The Webhook returns the body containing the bills in json format to the URL you requested. You will find the Webhook answer model at the following link : 
+          [Weebhook-Model](KoustPublic.v1.yaml/components/schemas/Webhook_Model)
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: Resource MIME
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          description: Authorization Header
+          required: true
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bills-Model'
+            examples:
+              Example:
+                value:
+                  url_callback: string
+                  date_interval:
+                    start_from: YYYY-MM-DD
+                    end_at: YYYY-MM-DD
+        description: ''
 components:
   schemas:
-    Order-Model:
-      description: A configuration for an order
+    Bills-Model:
+      title: Bills-Model
       type: object
-      title: Order
       properties:
-        id_cash_register:
-          type: number
-        order_id:
+        url_callback:
           type: string
-          minLength: 1
-        order_date:
-          type: string
-          minLength: 1
-        tickets:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            type: object
-            properties:
-              ticket_id:
-                type: string
-                minLength: 1
-              consumption_mode:
-                type: number
-              dishes:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  type: object
-                  properties:
-                    dish_id:
-                      type: string
-                      minLength: 1
-                    dish_name:
-                      type: string
-                      minLength: 1
-                    dish_price_excl_tax:
-                      type: number
-                    dish_origin_price_excl_tax:
-                      type: number
-                    dish_vat:
-                      type: number
-                    dish_canceled_reason:
-                      type: number
-                    dish_quantity:
-                      type: number
-                    dish_options:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          option_id:
-                            type: string
-                          option_name:
-                            type: string
-                          option_quantity:
-                            type: number
-                          option_price_excl_tax:
-                            type: number
-                        required:
-                          - option_id
-                          - option_name
-                          - option_quantity
-                          - option_price_excl_tax
-                  required:
-                    - dish_id
-                    - dish_name
-                    - dish_price_excl_tax
-                    - dish_quantity
-              global_discounts:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  type: object
-                  properties:
-                    discount_name:
-                      type: string
-                      minLength: 1
-                    discount_amount:
-                      type: number
-                  required:
-                    - discount_amount
-              global_charges:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  type: object
-                  properties:
-                    charge_name:
-                      type: string
-                      minLength: 1
-                    charge_amount:
-                      type: number
-                  required:
-                    - charge_amount
-            required:
-              - ticket_id
+        date_interval:
+          type: object
+          required:
+            - start_from
+            - end_at
+          properties:
+            start_from:
+              type: string
+            end_at:
+              type: string
       required:
-        - id_cash_register
-        - order_id
-        - order_date
-        - tickets
-    Error-Model:
-      title: Error-Model
+        - url_callback
+    Error_Bills_Model:
+      title: Error_Bills_Model
       type: object
       properties:
+        status:
+          type: string
         message:
           type: string
-      description: The error object you'll receive when something went wrong.
-    Cash-Register-Model:
-      title: Cash-Register-Model
+    Success_Bills_Model:
+      title: Success_Bills_Model
       type: object
       properties:
-        id:
-          type: number
-        name:
+        status:
           type: string
-      description: The error object you'll receive when something went wrong.
+        message:
+          type: string
+        content:
+          type: object
+          properties:
+            bills_returned:
+              type: string
+            establishment_name:
+              type: string
+    Webhook_Model:
+      title: Webhook_Model
+      type: array
+      items:
+        type: object
+        properties:
+          invoice:
+            type: string
+          invoice_supplier:
+            type: object
+            properties:
+              supplier_id:
+                type: string
+              supplier_name:
+                type: string
+          invoice_date:
+            type: string
+          delivery_date:
+            type: string
+          deadline_date:
+            type: string
+          invoice_total:
+            type: string
+          invoice_items:
+            type: array
+            items:
+              type: object
+              properties:
+                ingredient_id:
+                  type: string
+                ingredient_name:
+                  type: string
+                ingredient_unit:
+                  type: string
+                ingredient_quantity:
+                  type: string
+                ingredient_price:
+                  type: string
+                ingredient_contenance:
+                  type: string
+                ingredient_contenance_supplier:
+                  type: string
+                ingredient_conditioning_value:
+                  type: string
+                ingredient_supplier_retained:
+                  type: string
   parameters:
     Content-Type:
       name: Content-Type
