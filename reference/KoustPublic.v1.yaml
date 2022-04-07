@@ -26,6 +26,30 @@ paths:
       responses:
         '200':
           description: OK
+  /ingredients:
+    get:
+      summary: Get list of ingredients
+      tags: []
+      responses: {}
+      operationId: get-ingredients
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: pageNumber
+          required: true
+          description: The page number (starting at 0)
+        - schema:
+            type: number
+          in: query
+          name: numberOfRows
+          required: true
+          description: The number of rows to return
+        - schema:
+            type: string
+          in: query
+          name: search
+      description: 'Use this endpoint to retrieve the list of ingredients. Using pagination is mandatory, you also have the possibility to search by ingredient name.'
 components:
   schemas:
     Order-Model:
