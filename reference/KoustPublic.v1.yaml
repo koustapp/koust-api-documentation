@@ -16,12 +16,37 @@ paths:
   /ingredients:
     parameters: []
     get:
-      summary: Ingredients
+      summary: /ingredients
       operationId: get-ingredients
       responses:
         '200':
           description: OK
       description: Use this endpoint to retrieve the list of ingredients
+      parameters:
+        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
+        - schema:
+            type: number
+          in: query
+          name: pageNumber
+          description: The page number (starting at 0)
+          required: true
+        - schema:
+            type: number
+          in: query
+          name: numberOfRows
+          description: The number of rows to return
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: search
+          description: Ingredient name searched
+    post:
+      summary: ''
+      operationId: post-ingredients
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     User:
