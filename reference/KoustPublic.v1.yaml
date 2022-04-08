@@ -255,7 +255,7 @@ paths:
           description: Ingredient name searched
   /bills:
     post:
-      summary: Get Bills for a period
+      summary: /bills
       operationId: post-bills
       responses:
         '201':
