@@ -447,5 +447,3 @@ components:
           tokenUrl: 'https://auth.koustapp.com/apex/rest/public_authentication/get_access_token'
           scopes: {}
           refreshUrl: 'https://auth.koustapp.com/apex/rest/public_authentication/refresh_token'
-
-
