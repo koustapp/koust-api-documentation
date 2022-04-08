@@ -306,18 +306,8 @@ paths:
         * The Webhook returns the body containing the bills in json format to the URL you requested. You will find the Webhook answer model at the following link : 
           [Weebhook-Model](KoustPublic.v1.yaml/components/schemas/Webhook_Model)
       parameters:
-        - schema:
-            type: string
-          in: header
-          name: Content-Type
-          description: Resource MIME
-          required: true
-        - schema:
-            type: string
-          in: header
-          name: Authorization
-          description: Authorization Header
-          required: true
+        - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
+        - $ref: '#/components/parameters/Authorization'
       security:
         - oauth2: []
       requestBody:
