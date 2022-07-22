@@ -82,7 +82,7 @@ paths:
                           dish_name: Burger Veggie
                           dish_price_excl_tax: 10.81
                           dish_origin_price_excl_tax: 10.81
-                          product_vat: 0.1
+                          dish_vat: 0.1
                           dish_canceled_reason: 200
                           dish_quantity: 1
                           dish_options:
@@ -97,7 +97,7 @@ paths:
                           dish_name: Pizza 31cm
                           dish_price_excl_tax: 11.72
                           dish_origin_price_excl_tax: 11.72
-                          product_vat: 0.1
+                          dish_vat: 0.1
                           dish_canceled_reason: 200
                           dish_quantity: 1
                       global_discounts:
