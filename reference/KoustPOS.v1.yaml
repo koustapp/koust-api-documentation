@@ -90,7 +90,7 @@ paths:
                               option_name: Moutarde
                               option_quantity: 1
                               option_price_excl_tax: 0
-                    - ticket_id: '2517'
+                    - ticket_id: '2518'
                       consumption_mode: 2
                       dishes:
                         - dish_id: '1581'
