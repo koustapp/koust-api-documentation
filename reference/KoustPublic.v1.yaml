@@ -16,7 +16,7 @@ paths:
   /ingredients:
     parameters: []
     get:
-      summary: /ingredients
+      summary: List ingredients
       operationId: get-ingredients
       responses:
         '200':
@@ -253,6 +253,12 @@ paths:
           in: query
           name: search
           description: Ingredient name searched
+  /recipes:
+    get:
+      summary: List recipes
+      tags: []
+      responses: {}
+      operationId: get-recipes
   /bills:
     post:
       summary: /bills
@@ -323,6 +329,12 @@ paths:
                     start_from: YYYY-MM-DD
                     end_at: YYYY-MM-DD
         description: ''
+    get:
+      summary: List bills
+      operationId: get-bills
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     Bills-Model:
