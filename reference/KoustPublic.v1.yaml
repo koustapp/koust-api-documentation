@@ -329,6 +329,7 @@ paths:
                     start_from: YYYY-MM-DD
                     end_at: YYYY-MM-DD
         description: ''
+      x-internal: true
     get:
       summary: List bills
       operationId: get-bills
