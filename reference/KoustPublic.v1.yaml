@@ -259,6 +259,9 @@ paths:
       tags: []
       responses: {}
       operationId: get-recipes
+      description: Use this endpoint to retrieve the list of recipes
+      parameters:
+        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
   /bills:
     post:
       summary: Bills Webhook
