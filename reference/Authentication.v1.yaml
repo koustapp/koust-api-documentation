@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: KOUST OAUTH2.0
+  title: Authentication
   version: '1.0'
   description: |-
     Use your application's username and password to authorize using OAuth.

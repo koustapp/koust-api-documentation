@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Koust POS v1
+  title: POS Api
   version: '1.0'
   contact:
     name: Koust Support
