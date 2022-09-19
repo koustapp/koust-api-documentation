@@ -261,7 +261,7 @@ paths:
       operationId: get-recipes
   /bills:
     post:
-      summary: /bills
+      summary: Bills Webhook
       operationId: post-bills
       responses:
         '201':
