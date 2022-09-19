@@ -339,6 +339,22 @@ paths:
       responses:
         '200':
           description: OK
+      description: |
+        Use this endpoint to retrieve the list of bills between two dates
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+        - schema:
+            type: string
+          in: query
+          name: date_from
+          description: Starting date
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: date_to
+          description: Ending date
+          required: true
 components:
   schemas:
     Bills-Model:
