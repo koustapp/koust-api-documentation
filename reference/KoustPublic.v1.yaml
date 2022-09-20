@@ -717,8 +717,29 @@ paths:
             application/json:
               schema:
                 type: object
+                x-examples:
+                  example-1:
+                    bills:
+                      - id: 252374
+                        supplier:
+                          id: 90384
+                          name: A2S
+                        invoice_date: '2022-01-11T13:20:49Z'
+                        delivery_date: '2022-01-11T00:00:00Z'
+                        deadline_date: '2022-02-05T00:00:00Z'
+                        invoice_total: 464.504
+                        items:
+                          - id: 261618
+                            name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
+                            unit: Kg
+                            quantity: 1.9
+                            price: 7
+                            contenance_supplier: 10
+                            supplier_retained: 'Y'
+                    page_number: 0
+                    number_of_elements: 1
                 properties:
-                  bills:
+                  content:
                     type: array
                     items:
                       type: object
@@ -759,35 +780,14 @@ paths:
                                 type: integer
                               supplier_retained:
                                 type: string
-                  page_number:
+                  page:
                     type: integer
-                  number_of_elements:
+                  elements:
                     type: integer
-                x-examples:
-                  example-1:
-                    bills:
-                      - id: 252374
-                        supplier:
-                          id: 90384
-                          name: A2S
-                        invoice_date: '2022-01-11T13:20:49Z'
-                        delivery_date: '2022-01-11T00:00:00Z'
-                        deadline_date: '2022-02-05T00:00:00Z'
-                        invoice_total: 464.504
-                        items:
-                          - id: 261618
-                            name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
-                            unit: Kg
-                            quantity: 1.9
-                            price: 7
-                            contenance_supplier: 10
-                            supplier_retained: 'Y'
-                    page_number: 0
-                    number_of_elements: 1
               examples:
                 Bill:
                   value:
-                    bills:
+                    content:
                       - id: 252374
                         supplier:
                           id: 90384
@@ -804,8 +804,8 @@ paths:
                             price: 7.25
                             contenance_supplier: 1
                             supplier_retained: 'Y'
-                    page_number: 0
-                    number_of_elements: 1
+                    page: 0
+                    elements: 1
       description: |
         Use this endpoint to retrieve the list of bills between two dates
       parameters:
