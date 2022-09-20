@@ -342,83 +342,96 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    supplier:
+                type: object
+                properties:
+                  bills:
+                    type: array
+                    items:
                       type: object
                       properties:
                         id:
                           type: integer
-                        name:
+                        supplier:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                        invoice_date:
                           type: string
-                    invoice_date:
-                      type: string
-                    delivery_date:
-                      type: string
-                    deadline_date:
-                      type: string
-                    invoice_total:
-                      type: number
-                    items:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                          name:
-                            type: string
-                          unit:
-                            type: string
-                          quantity:
-                            type: number
-                          price:
-                            type: integer
-                          contenance_supplier:
-                            type: integer
-                          supplier_retained:
-                            type: string
+                        delivery_date:
+                          type: string
+                        deadline_date:
+                          type: string
+                        invoice_total:
+                          type: number
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                              unit:
+                                type: string
+                              quantity:
+                                type: number
+                              price:
+                                type: integer
+                              contenance_supplier:
+                                type: integer
+                              supplier_retained:
+                                type: string
+                  page_number:
+                    type: integer
+                  number_of_elements:
+                    type: integer
                 x-examples:
                   example-1:
-                    - id: 252374
-                      supplier:
-                        id: 90384
-                        name: A2S
-                      invoice_date: '2022-01-11T13:20:49Z'
-                      delivery_date: '2022-01-11T00:00:00Z'
-                      deadline_date: '2022-02-05T00:00:00Z'
-                      invoice_total: 464.504
-                      items:
-                        - id: 261618
-                          name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
-                          unit: Kg
-                          quantity: 1.9
-                          price: 7
-                          contenance_supplier: 10
-                          supplier_retained: 'Y'
+                    bills:
+                      - id: 252374
+                        supplier:
+                          id: 90384
+                          name: A2S
+                        invoice_date: '2022-01-11T13:20:49Z'
+                        delivery_date: '2022-01-11T00:00:00Z'
+                        deadline_date: '2022-02-05T00:00:00Z'
+                        invoice_total: 464.504
+                        items:
+                          - id: 261618
+                            name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
+                            unit: Kg
+                            quantity: 1.9
+                            price: 7
+                            contenance_supplier: 10
+                            supplier_retained: 'Y'
+                    page_number: 0
+                    number_of_elements: 1
               examples:
                 Bill:
                   value:
-                    - id: 252374
-                      supplier:
-                        id: 90384
-                        name: A2S
-                      invoice_date: '2022-01-11T13:20:49Z'
-                      delivery_date: '2022-01-11T00:00:00Z'
-                      deadline_date: '2022-02-05T00:00:00Z'
-                      invoice_total: 14.5
-                      items:
-                        - id: 261618
-                          name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
-                          unit: Kg
-                          quantity: 2
-                          price: 7.25
-                          contenance_supplier: 1
-                          supplier_retained: 'Y'
+                    bills:
+                      - id: 252374
+                        supplier:
+                          id: 90384
+                          name: A2S
+                        invoice_date: '2022-01-11T13:20:49Z'
+                        delivery_date: '2022-01-11T00:00:00Z'
+                        deadline_date: '2022-02-05T00:00:00Z'
+                        invoice_total: 14.5
+                        items:
+                          - id: 261618
+                            name: 1KG CHOCOLAT POUDRE VAN HOUTEN SPE BAR
+                            unit: Kg
+                            quantity: 2
+                            price: 7.25
+                            contenance_supplier: 1
+                            supplier_retained: 'Y'
+                    page_number: 0
+                    number_of_elements: 1
       description: |
         Use this endpoint to retrieve the list of bills between two dates
       parameters:
