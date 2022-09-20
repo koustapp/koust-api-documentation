@@ -806,6 +806,10 @@ paths:
                             supplier_retained: 'Y'
                     page: 0
                     elements: 1
+        '401':
+          description: Unauthorized
+        '555':
+          description: 'Error, please, contact us.'
       description: |
         Use this endpoint to retrieve the list of bills between two dates
       parameters:
