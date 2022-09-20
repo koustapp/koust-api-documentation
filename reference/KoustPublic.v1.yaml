@@ -199,6 +199,7 @@ paths:
                         storage_areas: []
                     page: 0
                     elements: 1
+              examples: {}
         '400':
           description: Bad Request
           content:
@@ -596,6 +597,98 @@ paths:
                   - content
                   - page
                   - elements
+              examples:
+                example:
+                  value:
+                    content:
+                      - id: 360
+                        name: Banana split
+                        category: Dessert
+                        portions: 12
+                        price: 4.2
+                        tva: 0.1
+                        weight: 100
+                        food_cost: 0.161
+                        total_cost: 0.161
+                        ratio: 23.65
+                        order:
+                          - id: 16341
+                            service: Uber
+                            commission: 0.25
+                            ratio: 17.79
+                          - id: 16344
+                            service: Deliveroo
+                            commission: 0.31
+                            ratio: 16.36
+                          - id: 16345
+                            service: Just Eat
+                            commission: 0.26
+                            ratio: 17.55
+                        ingredients:
+                          - id: 460
+                            name: Banane
+                            is_food: true
+                            unit_price: 9
+                            amount: 1
+                            unit: unité
+                            price: 1.125
+                            loss: 0
+                          - id: 562
+                            name: Vrac vanille
+                            is_food: true
+                            unit_price: 3
+                            amount: 0.12
+                            unit: L
+                            price: 0.36
+                            loss: 0
+                          - id: 564
+                            name: Vrac chocolat
+                            is_food: true
+                            unit_price: 2
+                            amount: 0.14
+                            unit: L
+                            price: 0.322
+                            loss: 0
+                        subrecipes:
+                          - id: 31441
+                            unit_price: 0.15
+                            amount: 1
+                            unit: Portion(s)
+                            price: 0.1467
+                        steps:
+                          - position: 1
+                            description: Eplucher la banane
+                          - position: 2
+                            description: Poser la banane au milieu
+                        description: Un banana split.
+                        youtube_url: ''
+                        days_validity: 2
+                        tags:
+                          - name: Origine France
+                        nutritional_values:
+                          portion: 100
+                          kj: 3305
+                          kcal: 790
+                          fat: 23
+                          saturated: 12
+                          polyunsaturated: 4
+                          monounsaturated: 7
+                          carbs: 72
+                          sugar: 56
+                          polyol: 0
+                          starch: 8
+                          fiber: 4
+                        gemrcn:
+                          criteria:
+                            - name: Crudites
+                            - name: Desserts de fruits cru
+                          quantities:
+                            - type: Maternelle
+                              quantity: 20
+                            - type: Adulte
+                              quantity: 70
+                    page: 0
+                    elements: 1
           description: OK
         '400':
           description: Bad Request
