@@ -455,8 +455,10 @@ paths:
                           type: string
                         category:
                           type: string
-                        portions:
+                        amount:
                           type: number
+                        unit:
+                          type: string
                         price:
                           type: number
                         tva:
@@ -604,7 +606,8 @@ paths:
                       - id: 360
                         name: Banana split
                         category: Dessert
-                        portions: 12
+                        amount: 12
+                        unit: Portion(s)
                         price: 4.2
                         tva: 0.1
                         weight: 100
