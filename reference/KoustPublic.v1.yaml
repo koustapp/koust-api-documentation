@@ -677,7 +677,8 @@ paths:
                         youtube_url: ''
                         days_validity: 2
                         tags:
-                          - name: Origine France
+                          - id: 12
+                            name: Origine France
                         nutritional_values:
                           portion: 100
                           kj: 3305
