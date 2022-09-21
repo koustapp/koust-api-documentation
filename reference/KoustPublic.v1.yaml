@@ -573,6 +573,20 @@ paths:
                               type: number
                             fiber:
                               type: number
+                            protein:
+                              type: number
+                            salt:
+                              type: number
+                        min_temp:
+                          type: number
+                        max_temp:
+                          type: number
+                        ean:
+                          type: string
+                        ingredient_list:
+                          type: string
+                        allergens:
+                          type: string
                         gemrcn:
                           type: object
                           properties:
@@ -635,31 +649,7 @@ paths:
                             service: Just Eat
                             commission: 0.26
                             ratio: 17.55
-                        ingredients:
-                          - id: 460
-                            name: Banane
-                            is_food: true
-                            unit_price: 9
-                            amount: 1
-                            unit: unité
-                            price: 1.125
-                            loss: 0
-                          - id: 562
-                            name: Vrac vanille
-                            is_food: true
-                            unit_price: 3
-                            amount: 0.12
-                            unit: L
-                            price: 0.36
-                            loss: 0
-                          - id: 564
-                            name: Vrac chocolat
-                            is_food: true
-                            unit_price: 2
-                            amount: 0.14
-                            unit: L
-                            price: 0.322
-                            loss: 0
+                        ingredients: 'Banane, Crème vanillée DEBIC, Vrac chocolat, Vrac vanille'
                         subrecipes:
                           - id: 31441
                             unit_price: 0.15
@@ -692,6 +682,11 @@ paths:
                           polyol: 0
                           starch: 8
                           fiber: 4
+                        min_temp: 0
+                        max_temp: 4
+                        ean: '123456789'
+                        ingredient_list: 'Banane, Crème vanillée DEBIC, Vrac chocolat, Vrac vanille'
+                        allergens: 'Arachide, Coque, Crustacé, Lait, Soja'
                         gemrcn:
                           criteria:
                             - id: 1
