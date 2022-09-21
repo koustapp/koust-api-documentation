@@ -525,6 +525,8 @@ paths:
                           items:
                             type: object
                             properties:
+                              id:
+                                type: number
                               position:
                                 type: number
                               description:
@@ -540,6 +542,8 @@ paths:
                           items:
                             type: object
                             properties:
+                              id:
+                                type: number
                               name:
                                 type: string
                         nutritional_values:
@@ -577,6 +581,8 @@ paths:
                               items:
                                 type: object
                                 properties:
+                                  id:
+                                    type: number
                                   name:
                                     type: string
                             quantities:
@@ -584,6 +590,8 @@ paths:
                               items:
                                 type: object
                                 properties:
+                                  id:
+                                    type: number
                                   type:
                                     type: string
                                   quantity:
@@ -659,9 +667,11 @@ paths:
                             unit: Portion(s)
                             price: 0.1467
                         steps:
-                          - position: 1
+                          - id: 1324
+                            position: 1
                             description: Eplucher la banane
-                          - position: 2
+                          - id: 1325
+                            position: 2
                             description: Poser la banane au milieu
                         description: Un banana split.
                         youtube_url: ''
@@ -683,12 +693,16 @@ paths:
                           fiber: 4
                         gemrcn:
                           criteria:
-                            - name: Crudites
-                            - name: Desserts de fruits cru
+                            - id: 1
+                              name: Crudites
+                            - id: 16
+                              name: Desserts de fruits cru
                           quantities:
-                            - type: Maternelle
+                            - id: 1
+                              type: Maternelle
                               quantity: 20
-                            - type: Adulte
+                            - id: 2
+                              type: Adulte
                               quantity: 70
                     page: 0
                     elements: 1
