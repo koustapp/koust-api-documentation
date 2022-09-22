@@ -1158,6 +1158,7 @@ paths:
           in: header
           name: pageNumber
           description: The page number (starting at 0)
+      description: Use this endpoint to retrieve the detail of an inventory
 components:
   schemas:
     Bills-Model:
