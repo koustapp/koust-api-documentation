@@ -1024,11 +1024,13 @@ paths:
           in: query
           name: pageNumber
           description: The page number (starting at 0)
+          required: true
         - schema:
             type: number
           in: query
           name: numberOfRows
           description: The number of rows to return
+          required: true
       description: Use this endpoint to retrieve the list of inventories between two dates
   '/inventories/{id}':
     parameters:
@@ -1158,11 +1160,13 @@ paths:
           in: query
           name: pageNumber
           description: The page number (starting at 0)
+          required: true
         - schema:
             type: number
           in: query
           name: numberOfRows
           description: The number of rows to return
+          required: true
       description: Use this endpoint to retrieve the detail of an inventory
 components:
   schemas:
