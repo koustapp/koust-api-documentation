@@ -1155,9 +1155,14 @@ paths:
         - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
         - schema:
             type: number
-          in: header
+          in: query
           name: pageNumber
           description: The page number (starting at 0)
+        - schema:
+            type: number
+          in: query
+          name: numberOfRows
+          description: The number of rows to return
       description: Use this endpoint to retrieve the detail of an inventory
 components:
   schemas:
