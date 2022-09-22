@@ -944,6 +944,220 @@ paths:
           name: numberOfRows
           description: The number of rows to return
           required: true
+  /inventories:
+    get:
+      summary: List inventories
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    content:
+                      - inventory_id: 76080
+                        inventory_date: '2022-04-28T00:00:00Z'
+                        inventory_real_total: 8033.8
+                        inventory_lock: true
+                      - inventory_id: 75980
+                        inventory_date: '2022-04-13T00:00:00Z'
+                        inventory_real_total: 48
+                        inventory_lock: false
+                      - page: 0
+                        elements: 2
+                        totalElements: 40
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        inventory_id:
+                          type: integer
+                        inventory_date:
+                          type: string
+                        inventory_real_total:
+                          type:
+                            - integer
+                            - number
+                        inventory_lock:
+                          type: boolean
+                        page:
+                          type: integer
+                        elements:
+                          type: integer
+              examples:
+                example:
+                  value:
+                    content:
+                      - inventory_id: 76080
+                        inventory_date: '2022-04-28T00:00:00Z'
+                        inventory_real_total: 8033.8
+                        inventory_lock: true
+                      - inventory_id: 75980
+                        inventory_date: '2022-04-13T00:00:00Z'
+                        inventory_real_total: 48
+                        inventory_lock: false
+                      - page: 0
+                        elements: 2
+        '401':
+          description: Unauthorized
+        '555': {}
+      operationId: get-inventories
+      parameters:
+        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
+        - schema:
+            type: string
+          in: query
+          name: date_from
+          description: Starting date
+        - schema:
+            type: string
+          in: query
+          name: date_to
+          description: Ending date
+        - schema:
+            type: number
+          in: query
+          name: pageNumber
+          description: The page number (starting at 0)
+        - schema:
+            type: number
+          in: query
+          name: numberOfRows
+          description: The number of rows to return
+      description: Use this endpoint to retrieve the list of inventories between two dates
+  '/inventories/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Details inventories
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    content:
+                      - item_ingredient_id: 856181
+                        item_ingredient_name: Blette (pied entier)
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 8
+                        item_barcodes: []
+                      - item_ingredient_id: 856197
+                        item_ingredient_name: Carotte violette
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 2.2
+                        item_barcodes: []
+                    pageNumber: 0
+                    limitElementsDisplays: 20
+                    totalElements: 2
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        item_ingredient_id:
+                          type: integer
+                        item_ingredient_name:
+                          type: string
+                        item_ingredient_unit:
+                          type: string
+                        item_ingredient_unit_counting:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            libelle:
+                              type: string
+                        item_ingredient_category:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                        item_quantities:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              item_quantity:
+                                type:
+                                  - integer
+                                  - number
+                        item_barcodes:
+                          type: array
+                          items:
+                            type: object
+                  page:
+                    type: integer
+                  elements:
+                    type: integer
+              examples:
+                example:
+                  value:
+                    content:
+                      - item_ingredient_id: 856181
+                        item_ingredient_name: Blette (pied entier)
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 8
+                        item_barcodes: []
+                      - item_ingredient_id: 856197
+                        item_ingredient_name: Carotte violette
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 2.2
+                        item_barcodes: []
+                    page: 0
+                    elements: 2
+      operationId: get-inventories-id
+      parameters:
+        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
+        - schema:
+            type: number
+          in: header
+          name: pageNumber
+          description: The page number (starting at 0)
 components:
   schemas:
     Bills-Model:
