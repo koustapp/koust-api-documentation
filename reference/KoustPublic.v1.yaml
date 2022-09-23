@@ -494,7 +494,7 @@ paths:
                               name:
                                 type: string
                               is_food:
-                                type: boolean
+                                type: string
                               unit_price:
                                 type: number
                               amount:
@@ -652,7 +652,7 @@ paths:
                         ingredients:
                           - id: 460
                             name: Banane
-                            is_food: true
+                            is_food: 'true'
                             unit_price: 9
                             amount: 1
                             unit: unité
@@ -660,7 +660,7 @@ paths:
                             loss: 0
                           - id: 562
                             name: Vrac vanille
-                            is_food: true
+                            is_food: 'true'
                             unit_price: 3
                             amount: 0.12
                             unit: L
@@ -668,7 +668,7 @@ paths:
                             loss: 0
                           - id: 564
                             name: Vrac chocolat
-                            is_food: true
+                            is_food: 'true'
                             unit_price: 2
                             amount: 0.14
                             unit: L
