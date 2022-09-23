@@ -706,6 +706,8 @@ paths:
                           polyol: 0
                           starch: 8
                           fiber: 4
+                          protein: 12
+                          salt: 2
                         min_temp: 0
                         max_temp: 4
                         ean: '123456789'
