@@ -649,7 +649,31 @@ paths:
                             service: Just Eat
                             commission: 0.26
                             ratio: 17.55
-                        ingredients: 'Banane, Crème vanillée DEBIC, Vrac chocolat, Vrac vanille'
+                        ingredients:
+                          - id: 460
+                            name: Banane
+                            is_food: true
+                            unit_price: 9
+                            amount: 1
+                            unit: unité
+                            price: 1.125
+                            loss: 0
+                          - id: 562
+                            name: Vrac vanille
+                            is_food: true
+                            unit_price: 3
+                            amount: 0.12
+                            unit: L
+                            price: 0.36
+                            loss: 0
+                          - id: 564
+                            name: Vrac chocolat
+                            is_food: true
+                            unit_price: 2
+                            amount: 0.14
+                            unit: L
+                            price: 0.322
+                            loss: 0
                         subrecipes:
                           - id: 31441
                             unit_price: 0.15
