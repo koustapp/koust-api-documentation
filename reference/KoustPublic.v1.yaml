@@ -256,12 +256,10 @@ paths:
       security:
         - oauth2: []
       tags:
-        - ingredients
+        - Ingredients
   /recipes:
     get:
       summary: List recipes
-      tags:
-        - recipes
       responses:
         '200':
           content:
@@ -773,6 +771,8 @@ paths:
           description: Recipe name searched
       security:
         - oauth2: []
+      tags:
+        - Recipes
   /bills:
     post:
       summary: Bills Webhook
@@ -977,11 +977,11 @@ paths:
           required: true
       security:
         - oauth2: []
+      tags:
+        - Bills
   /inventories:
     get:
       summary: List inventories
-      tags:
-        - inventories
       responses:
         '200':
           description: OK
@@ -1066,6 +1066,8 @@ paths:
       description: Use this endpoint to retrieve the list of inventories between two dates
       security:
         - oauth2: []
+      tags:
+        - Inventories
   '/inventories/{id}':
     parameters:
       - schema:
@@ -1075,8 +1077,6 @@ paths:
         required: true
     get:
       summary: Get inventory detail
-      tags:
-        - inventories
       responses:
         '200':
           description: OK
@@ -1208,11 +1208,11 @@ paths:
       description: Use this endpoint to retrieve the detail of an inventory
       security:
         - oauth2: []
+      tags:
+        - Inventories
   /closures:
     get:
       summary: List closures
-      tags:
-        - closures
       responses:
         '200':
           description: OK
@@ -2045,6 +2045,8 @@ paths:
           name: numberOfRows
           description: The number of rows to return
           required: true
+      tags:
+        - Closures
   '/closures/tickets/{id}':
     parameters:
       - schema:
@@ -2054,8 +2056,6 @@ paths:
         required: true
     get:
       summary: Get ticket detail
-      tags:
-        - closures
       responses:
         '200':
           description: OK
@@ -2195,6 +2195,8 @@ paths:
       security:
         - oauth2: []
       description: Use this endpoint to retrieve a ticket detail
+      tags:
+        - Closures
 components:
   schemas:
     Bills-Model:
