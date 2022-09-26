@@ -844,7 +844,7 @@ paths:
         description: ''
       x-internal: true
       tags:
-        - bills
+        - Bills
     get:
       summary: List bills
       operationId: get-bills
