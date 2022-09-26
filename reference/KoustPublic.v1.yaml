@@ -969,6 +969,8 @@ paths:
           name: numberOfRows
           description: The number of rows to return
           required: true
+      security:
+        - oauth2: []
   /inventories:
     get:
       summary: List inventories
