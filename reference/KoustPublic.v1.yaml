@@ -255,10 +255,13 @@ paths:
           description: Ingredient name searched
       security:
         - oauth2: []
+      tags:
+        - ingredients
   /recipes:
     get:
       summary: List recipes
-      tags: []
+      tags:
+        - recipes
       responses:
         '200':
           content:
@@ -840,6 +843,8 @@ paths:
                     end_at: YYYY-MM-DD
         description: ''
       x-internal: true
+      tags:
+        - bills
     get:
       summary: List bills
       operationId: get-bills
@@ -975,7 +980,8 @@ paths:
   /inventories:
     get:
       summary: List inventories
-      tags: []
+      tags:
+        - inventories
       responses:
         '200':
           description: OK
@@ -1069,7 +1075,8 @@ paths:
         required: true
     get:
       summary: Get inventory detail
-      tags: []
+      tags:
+        - inventories
       responses:
         '200':
           description: OK
@@ -1204,7 +1211,8 @@ paths:
   /closures:
     get:
       summary: List closures
-      tags: []
+      tags:
+        - closures
       responses:
         '200':
           description: OK
@@ -2046,7 +2054,8 @@ paths:
         required: true
     get:
       summary: Get ticket detail
-      tags: []
+      tags:
+        - closures
       responses:
         '200':
           description: OK
