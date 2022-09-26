@@ -1067,7 +1067,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Details inventories
+      summary: Get inventory detail
       tags: []
       responses:
         '200':
@@ -2032,6 +2032,155 @@ paths:
           name: numberOfRows
           description: The number of rows to return
           required: true
+  '/closures/tickets/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get ticket detail
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        turnover_excl_tax:
+                          type:
+                            - integer
+                            - number
+                        quantity:
+                          type: integer
+                        article:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            price:
+                              type:
+                                - integer
+                                - number
+                            mode:
+                              type: string
+                  elements:
+                    type: integer
+                x-examples:
+                  example-1:
+                    content:
+                      - id: 18144070
+                        turnover_excl_tax: 3.333
+                        quantity: 1
+                        article:
+                          id: 227377
+                          name: Demi 25 cl  brut
+                          price: 0
+                          mode: Eat In
+                      - id: 18144071
+                        turnover_excl_tax: 5.455
+                        quantity: 1
+                        article:
+                          id: 228256
+                          name: Caramel
+                          price: 7.273
+                          mode: Eat In
+                      - id: 18144072
+                        turnover_excl_tax: 4.091
+                        quantity: 1
+                        article:
+                          id: 228303
+                          name: 'Lemonaid '
+                          price: 3.545
+                          mode: Eat In
+                      - id: 18144073
+                        turnover_excl_tax: 0
+                        quantity: 1
+                        article:
+                          id: 228304
+                          name: Fruit de la passion
+                          mode: Eat In
+                      - id: 18144074
+                        turnover_excl_tax: 13.182
+                        quantity: 1
+                        article:
+                          id: 228269
+                          name: Cigalou
+                          price: 12.636
+                          mode: Eat In
+                      - id: 18144075
+                        turnover_excl_tax: 0
+                        quantity: 3
+                        article:
+                          id: 295046
+                          name: 'Avec Salade '
+                          mode: Eat In
+                      - id: 18144076
+                        turnover_excl_tax: 0
+                        quantity: 0
+                        article:
+                          id: 228273
+                          name: Petit chef
+                          price: 11.727
+                          mode: Eat In
+                      - id: 18144077
+                        turnover_excl_tax: 14.091
+                        quantity: 1
+                        article:
+                          id: 243285
+                          name: Avocado Toast
+                          price: 12.636
+                          mode: Eat In
+                      - id: 18144078
+                        turnover_excl_tax: 0
+                        quantity: 1
+                        article:
+                          id: 274852
+                          name: 'Chèvre '
+                          mode: Eat In
+                    elements: 9
+              examples:
+                Ticket Details:
+                  value:
+                    content:
+                      - id: 18144071
+                        turnover_excl_tax: 5.455
+                        quantity: 1
+                        article:
+                          id: 228256
+                          name: Caramel
+                          price: 7.273
+                          mode: Eat In
+                      - id: 18144077
+                        turnover_excl_tax: 14.091
+                        quantity: 1
+                        article:
+                          id: 243285
+                          name: Avocado Toast
+                          price: 12.636
+                          mode: Eat In
+                    elements: 2
+        '401':
+          description: Unauthorized
+        '555':
+          description: |
+            Error, please, contact us.
+      operationId: get-closures-tickets-id
+      security:
+        - oauth2: []
+      description: Use this endpoint to retrieve a ticket detail
 components:
   schemas:
     Bills-Model:
