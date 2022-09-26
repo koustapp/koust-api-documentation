@@ -1192,6 +1192,843 @@ paths:
           description: The number of rows to return
           required: true
       description: Use this endpoint to retrieve the detail of an inventory
+  /closures:
+    get:
+      summary: List closures
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        date:
+                          type: string
+                        tickets:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                  page:
+                    type: integer
+                  elements:
+                    type: integer
+                x-examples:
+                  example-1:
+                    content:
+                      - id: 95581
+                        name: CASHPAD898
+                        date: '2022-09-25T00:00:00Z'
+                        tickets:
+                          - id: 4509705
+                            name: Ticket N° ac73466f-0175-4b5b-9c58-1d952c04a9cd
+                          - id: 4509706
+                            name: Ticket N° 5c523d54-282e-4466-8490-4456e69da43f
+                          - id: 4509707
+                            name: Ticket N° ff2b65ce-d7bc-4f54-beb3-0c6cefab67ad
+                          - id: 4509708
+                            name: Ticket N° fefccf2a-f81a-4431-80dc-5136e41922f8
+                          - id: 4509709
+                            name: Ticket N° 97b7b7b7-87ce-4aea-beb9-2096d5585922
+                          - id: 4509710
+                            name: Ticket N° c4dfe962-8c3e-42ea-abef-dcd2eda35a57
+                          - id: 4509711
+                            name: Ticket N° a221eb8c-9500-4abd-a647-31f03a58b40a
+                          - id: 4509712
+                            name: Ticket N° b05aa8e9-9c37-466b-a1d2-7a4d085e3686
+                          - id: 4509713
+                            name: Ticket N° bf3bfed1-ab41-40d6-b600-cd916394559f
+                          - id: 4509714
+                            name: Ticket N° 78f97da5-8076-4ad6-a265-3d94173a379d
+                          - id: 4509715
+                            name: Ticket N° 8899eacc-277a-4272-89b2-cdc9f7b29954
+                          - id: 4509716
+                            name: Ticket N° 98f34f8a-4648-4695-8978-f91e09f0776d
+                          - id: 4509717
+                            name: Ticket N° 4c643589-c671-409d-b4d4-2bd11aa70361
+                          - id: 4509718
+                            name: Ticket N° f36005fa-28aa-4283-a050-05bd72ecfe57
+                          - id: 4509719
+                            name: Ticket N° ef42eb6d-2bc0-4da1-ba27-565c4a0f6868
+                          - id: 4509720
+                            name: Ticket N° 918cfe95-d141-4481-95fd-6e875b58a2a1
+                          - id: 4509721
+                            name: Ticket N° 2833a8d6-19ec-4ce7-9324-053bddbe7695
+                          - id: 4509722
+                            name: Ticket N° d30fa2bb-0a83-487d-aed8-3fdca2a1b825
+                          - id: 4509723
+                            name: Ticket N° bfc01a20-9127-4bbf-b49d-744e181136a7
+                          - id: 4509724
+                            name: Ticket N° faa8e01e-a8ab-4948-906d-4fb57935cdbf
+                          - id: 4509725
+                            name: Ticket N° 4c6cb285-1f7f-4cd4-91c5-eb0c6fb34afa
+                          - id: 4509726
+                            name: Ticket N° 904038a0-dff5-4bfb-88b3-923cd471e904
+                          - id: 4509727
+                            name: Ticket N° 90dcd045-adfd-4084-90ae-87ade507a382
+                          - id: 4509728
+                            name: Ticket N° 1b6549b7-ec6b-4356-9558-c2f2b2f19687
+                          - id: 4509729
+                            name: Ticket N° 4289b897-693d-4ef1-9989-3baa04653961
+                          - id: 4509730
+                            name: Ticket N° 0448e16f-e8c3-4fad-b7cc-9b03cb6d8d6c
+                          - id: 4509731
+                            name: Ticket N° 53839a79-e8fa-437f-a0d5-bff050198527
+                          - id: 4509732
+                            name: Ticket N° 9675fb0f-b3c0-4d8d-8ae0-2c3b4bdf7b22
+                          - id: 4509733
+                            name: Ticket N° a4383b74-7a19-4bd0-8d49-26cffd6c42d2
+                          - id: 4509734
+                            name: Ticket N° 87a1d755-4c21-4066-96a5-95bc5d1b367d
+                          - id: 4509735
+                            name: Ticket N° a687170a-ef7b-4517-acd0-2c4fb3b76aaf
+                          - id: 4509736
+                            name: Ticket N° 7e52c663-c43d-453b-844d-f18d8ada58be
+                          - id: 4509737
+                            name: Ticket N° aee2c5f0-4bc1-4bd3-9b6b-1f2735a1300f
+                          - id: 4509738
+                            name: Ticket N° eac6ea9e-75be-40ab-8f89-eb6c9fc04591
+                          - id: 4509739
+                            name: Ticket N° 63be8df0-694f-41a0-80d5-70cb22266b0b
+                          - id: 4509740
+                            name: Ticket N° 8ccd2eec-4b43-49cb-8ac5-f7d3a9c32b11
+                          - id: 4509741
+                            name: Ticket N° 70c3bbf1-e4b3-4faf-84e6-30e52b213f2c
+                          - id: 4509742
+                            name: Ticket N° 6fd54bb9-2308-4e34-9c9d-af79fc35f798
+                          - id: 4509743
+                            name: Ticket N° 7fe47a90-b4b7-4ce3-b133-68e9c6f8e920
+                          - id: 4509744
+                            name: Ticket N° 32843482-d033-497d-b190-2e4f9b0524c6
+                          - id: 4509745
+                            name: Ticket N° d62fe51c-4048-40ad-bb61-a84990240b33
+                          - id: 4509746
+                            name: Ticket N° e0d948f9-842f-4caa-9984-eac911930dea
+                          - id: 4509747
+                            name: Ticket N° 937ab070-a2e2-4931-9dca-8d73132039be
+                          - id: 4509748
+                            name: Ticket N° 92b4dce8-458f-4d51-b320-f9bec4ac0e50
+                      - id: 95456
+                        name: CASHPAD897
+                        date: '2022-09-24T00:00:00Z'
+                        tickets:
+                          - id: 4500594
+                            name: Ticket N° 015c45e9-5335-4870-8e50-3d453824fc45
+                          - id: 4500595
+                            name: Ticket N° 18cd99c3-269d-470f-a495-8b39bd0ca44a
+                          - id: 4500596
+                            name: Ticket N° cff575a9-bb3b-48e0-8718-80a3cb853f29
+                          - id: 4500597
+                            name: Ticket N° f23d2d11-3754-4c2c-93f4-c45f12cbc619
+                          - id: 4500598
+                            name: Ticket N° dd479616-5593-4318-8eb2-5d5247a74a4d
+                          - id: 4500599
+                            name: Ticket N° 5fd8f31f-1195-4b1c-bc2f-61d1b4e44234
+                          - id: 4500600
+                            name: Ticket N° c135b19c-6fe6-484f-a0cf-98964c7ac0f9
+                          - id: 4500601
+                            name: Ticket N° 99ed5350-5d9b-49f1-8414-c4c437de7b24
+                          - id: 4500602
+                            name: Ticket N° e82c5226-09f9-4f05-847e-0ce83e7e903f
+                          - id: 4500603
+                            name: Ticket N° 4649a997-61c8-4d75-98cb-9faf52f0be3f
+                          - id: 4500604
+                            name: Ticket N° 19f8b194-3750-40f2-a55f-8ff1935513de
+                          - id: 4500605
+                            name: Ticket N° b3cc3283-6b99-4300-aad9-1ba1135f6ded
+                          - id: 4500606
+                            name: Ticket N° ee457582-a5c9-4016-9816-5fa1edc54c9e
+                          - id: 4500607
+                            name: Ticket N° 6dc6c7af-96ef-4051-bd6c-a2c689e5960a
+                          - id: 4500608
+                            name: Ticket N° 68265cce-3bb4-4448-b100-f9deb74c9371
+                          - id: 4500609
+                            name: Ticket N° 609be277-77c8-47cf-a7fa-971e866cb401
+                          - id: 4500610
+                            name: Ticket N° 47edd6b3-5afb-4095-939b-54b5a757a71c
+                          - id: 4500611
+                            name: Ticket N° c8744e3d-bff1-44a9-bb75-0c1b614a16a3
+                          - id: 4500612
+                            name: Ticket N° b5222fb1-4865-4b0e-bc41-511bf8901483
+                          - id: 4500613
+                            name: Ticket N° aa9059ed-c0e6-4fb2-ba1a-8a6aa9e2c929
+                          - id: 4500614
+                            name: Ticket N° 7df2f6b4-c09b-448b-aa24-5a9d02f0751c
+                          - id: 4500615
+                            name: Ticket N° e9e9a509-1a09-400a-b7d1-447523aca9ca
+                          - id: 4500616
+                            name: Ticket N° ba42d190-d7f5-4471-95cb-46dcd7fa350b
+                          - id: 4500617
+                            name: Ticket N° 6d7e7ab4-2c7a-4bc9-88a8-ef714662e6b8
+                          - id: 4500618
+                            name: Ticket N° 3ef74766-05f2-42d5-a44b-268d62fba1a7
+                          - id: 4500619
+                            name: Ticket N° d388e74f-f07d-4ed4-81c9-25276915a880
+                          - id: 4500620
+                            name: Ticket N° a76fb0e0-281b-4749-aada-851f99c50ffc
+                          - id: 4500621
+                            name: Ticket N° c68a281a-de6c-4112-81f2-73c4aab72806
+                          - id: 4500622
+                            name: Ticket N° 27d55610-91aa-499b-bdd9-81944cfa7933
+                          - id: 4500623
+                            name: Ticket N° 53e014ee-939b-413f-a3a1-4fad034f72a8
+                          - id: 4500624
+                            name: Ticket N° ea077892-0c17-46d2-b013-99194ec757f7
+                          - id: 4500625
+                            name: Ticket N° 2cd5bf5e-e120-4cd2-b6a6-114399630591
+                          - id: 4500626
+                            name: Ticket N° 9314b9c2-5a29-4b18-8a04-1544da23bc97
+                          - id: 4500627
+                            name: Ticket N° 3fff4544-66d1-409e-9999-ecc8fd6d9b64
+                          - id: 4500628
+                            name: Ticket N° 9ba2d14c-d8c5-491e-bed2-9b1e7f647a91
+                          - id: 4500629
+                            name: Ticket N° 46a82716-800e-47ee-a5b7-5fe19d0deaff
+                          - id: 4500630
+                            name: Ticket N° 9227120f-14d5-4db0-bc80-de9766492c44
+                          - id: 4500631
+                            name: Ticket N° 4bbd2901-8b58-4d81-812f-b6be6d9c5259
+                          - id: 4500632
+                            name: Ticket N° ff52e074-a029-438b-ba44-ee3ae15be773
+                          - id: 4500633
+                            name: Ticket N° 04869833-94e7-4de5-a8ed-2e2bf03e3538
+                          - id: 4500634
+                            name: Ticket N° 616ccd89-1a59-4015-8486-e8bc76f68da6
+                          - id: 4500635
+                            name: Ticket N° 813c2d8e-ef86-4280-8dea-fbf6550e7684
+                          - id: 4500636
+                            name: Ticket N° 2060e74d-4536-4b65-8e3e-f1280b0285c1
+                          - id: 4500637
+                            name: Ticket N° db205041-3ba6-40e0-baf1-d725e4d8e6b9
+                          - id: 4500638
+                            name: Ticket N° 5a60dd19-0358-4974-b5cb-3691fc544059
+                          - id: 4500639
+                            name: Ticket N° fbbb34dd-1211-4260-9799-41cb0c2e278e
+                          - id: 4500640
+                            name: Ticket N° 5fef34bb-d7df-40c3-be19-8271bbbf1306
+                          - id: 4500641
+                            name: Ticket N° fb93b049-7156-4411-aa62-dbf8c3844485
+                          - id: 4500642
+                            name: Ticket N° 883e9f13-fb0f-4982-a54e-89ff1188276a
+                          - id: 4500643
+                            name: Ticket N° fbcee9b4-6e84-4cee-b57b-00b1d6939b84
+                          - id: 4500644
+                            name: Ticket N° 4d7455b0-0085-4e67-bcfa-293b4d27c3f2
+                      - id: 95332
+                        name: CASHPAD896
+                        date: '2022-09-23T00:00:00Z'
+                        tickets:
+                          - id: 4491271
+                            name: Ticket N° 0a2eac90-ebcb-49b9-b45b-b59dcaa9e652
+                          - id: 4491272
+                            name: Ticket N° 5b20f1b4-8a5f-4f56-ae03-d361939709a4
+                          - id: 4491273
+                            name: Ticket N° 63d4d89d-e8cc-4c9a-b7a1-d6f4ac391030
+                          - id: 4491274
+                            name: Ticket N° e6e29aec-c0a8-4150-b00e-e5f439769711
+                          - id: 4491275
+                            name: Ticket N° 08838ab9-3cb1-431a-95fe-f7f1263367fb
+                          - id: 4491276
+                            name: Ticket N° 54fafd31-6e3a-40df-b6c1-7de134d08128
+                          - id: 4491277
+                            name: Ticket N° d8a551e4-c05c-42a0-851c-c732e25eff74
+                          - id: 4491278
+                            name: Ticket N° 8df0e375-3b27-43cb-a2d3-988e30c69ccf
+                          - id: 4491279
+                            name: Ticket N° e20f3809-d9e9-4a9b-b8a9-a46a166e1236
+                          - id: 4491280
+                            name: Ticket N° e1b29f26-6375-4cda-a5ba-49629e96f7bb
+                          - id: 4491281
+                            name: Ticket N° 96f10aee-1aeb-4e2f-b238-7674f799e0f9
+                          - id: 4491282
+                            name: Ticket N° 4087accf-865e-4274-9fda-8d6dc1b8b119
+                          - id: 4491283
+                            name: Ticket N° 864579ac-5ff6-47ba-8d5e-5d32f91a22f1
+                          - id: 4491284
+                            name: Ticket N° dafeee21-7e37-4cbc-96b8-e854db922a3f
+                          - id: 4491285
+                            name: Ticket N° 72373a2f-9ae2-4bc6-aac4-2c015aafe1bf
+                          - id: 4491286
+                            name: Ticket N° 2a3ed909-3db1-47b3-84a9-aec6892149fb
+                          - id: 4491287
+                            name: Ticket N° 6151b1bf-c495-4a18-8e66-1b68c57ed260
+                          - id: 4491288
+                            name: Ticket N° 77e5489a-6ab6-4309-bf9e-90916c00b11c
+                          - id: 4491289
+                            name: Ticket N° 636ab635-6907-4fb4-a495-02dc413ae9a6
+                          - id: 4491290
+                            name: Ticket N° 94337ba3-9a65-4bcb-bb98-9f933e78a160
+                          - id: 4491291
+                            name: Ticket N° a567991c-296e-494e-bf5c-d1165213fe3c
+                          - id: 4491292
+                            name: Ticket N° 4439c7f2-d27a-4db8-9021-64bd9c7cf3cf
+                          - id: 4491293
+                            name: Ticket N° f9fccc32-562a-486e-84a3-7dfb59e4369f
+                          - id: 4491294
+                            name: Ticket N° 9148e990-e40b-46f8-b4a3-3a6ab162b130
+                          - id: 4491295
+                            name: Ticket N° ddad33b9-7983-41e7-b34c-80410b1bd017
+                          - id: 4491296
+                            name: Ticket N° 470e9bd3-023f-43e1-9dbd-f62198ba18ca
+                          - id: 4491297
+                            name: Ticket N° 287f04ea-7102-4d87-9b0c-034206299171
+                          - id: 4491298
+                            name: Ticket N° d7b35ba1-2ca8-4bf1-8fbe-50445f23a104
+                          - id: 4491299
+                            name: Ticket N° b565f872-6965-4d97-a062-df92f5ed3bf4
+                      - id: 95190
+                        name: CASHPAD895
+                        date: '2022-09-22T00:00:00Z'
+                        tickets:
+                          - id: 4481473
+                            name: Ticket N° c63774b9-aa59-47c3-a384-3f020e30afae
+                          - id: 4481474
+                            name: Ticket N° 51e5ca32-15a6-47fb-8b0d-1eab62c82ee7
+                          - id: 4481475
+                            name: Ticket N° b060ab16-4b07-4335-877d-ac3938eea720
+                          - id: 4481476
+                            name: Ticket N° 1e3d28a6-ddda-4995-9249-7dab58bbd7d9
+                          - id: 4481477
+                            name: Ticket N° b000b467-32ee-4199-8a72-211b02e3fbc1
+                          - id: 4481478
+                            name: Ticket N° d1103c18-7ff8-4301-8644-9e82a460752f
+                          - id: 4481479
+                            name: Ticket N° 1997744d-ccd7-4bfa-b19c-2e78c1a42b14
+                          - id: 4481480
+                            name: Ticket N° e7c88692-73ba-40ae-9c9b-c9cebdaf6d1a
+                          - id: 4481481
+                            name: Ticket N° 90db3edc-c709-41df-8137-0f3ecdab3e32
+                          - id: 4481482
+                            name: Ticket N° b0b340af-440d-4708-916a-2ad0b3d7c545
+                          - id: 4481483
+                            name: Ticket N° b90b6bfe-8580-49bd-8fe9-89f2be5524fa
+                          - id: 4481484
+                            name: Ticket N° 6052a871-747a-49ee-a8bd-2bcd07d0199f
+                          - id: 4481485
+                            name: Ticket N° 16767800-c596-4215-88e9-f7854716738c
+                          - id: 4481486
+                            name: Ticket N° 46ae7696-84f2-4aef-bd80-406d2f3fb564
+                          - id: 4481487
+                            name: Ticket N° 74c8c730-cebd-4697-8a52-404315897eb7
+                          - id: 4481488
+                            name: Ticket N° 4f6888f2-d926-4d8c-8e90-4da55c905a40
+                          - id: 4481489
+                            name: Ticket N° 57b15ca5-d768-4b95-bdb9-ec7b460b4bd0
+                          - id: 4481490
+                            name: Ticket N° e4674062-7aaf-4234-ae45-14cc6a1e1de8
+                          - id: 4481491
+                            name: Ticket N° 83e23013-145c-42d0-a720-10ece3050f86
+                          - id: 4481492
+                            name: Ticket N° 71416c58-6c80-4064-a6f3-f72d84128f4a
+                          - id: 4481493
+                            name: Ticket N° 025f49f1-6e93-464e-966a-1e5e43920da3
+                          - id: 4481494
+                            name: Ticket N° 67c1a38d-02c9-42ae-b0b4-f321296e481d
+                          - id: 4481495
+                            name: Ticket N° 0d9a4bd7-7ae5-4ce8-a0de-718cc7cec7ce
+                          - id: 4481496
+                            name: Ticket N° 9bf4cb78-8816-423c-bf24-0bf30ea3a226
+                          - id: 4481497
+                            name: Ticket N° 09c8562a-df27-42f2-878e-f0977163238a
+                          - id: 4481498
+                            name: Ticket N° 6467c3b3-c096-4923-8edd-801464d80e94
+                          - id: 4481499
+                            name: Ticket N° 2cf278c1-ab4d-4a58-b2a5-44a0a3f14045
+                          - id: 4481500
+                            name: Ticket N° be96d04b-98bd-4973-aca1-cc045716eea9
+                          - id: 4481501
+                            name: Ticket N° 6e4905e9-5e32-4726-bd8c-110116e8ac20
+                          - id: 4481502
+                            name: Ticket N° d6d4935c-0f79-463d-9470-891f44019a20
+                          - id: 4481503
+                            name: Ticket N° d32dbb65-1e18-4f8c-90b3-a44a92411319
+                          - id: 4481504
+                            name: Ticket N° 52d287ab-1d18-4453-85c4-ffc8db801841
+                          - id: 4481505
+                            name: Ticket N° b078af72-b7d3-4853-9e68-635e4d0324c2
+                          - id: 4481506
+                            name: Ticket N° fc47980b-e452-436f-a786-dd22aefc0bc9
+                          - id: 4481507
+                            name: Ticket N° 037e383d-e410-4f55-aabf-0875e50c3a9f
+                          - id: 4481508
+                            name: Ticket N° 8055bfeb-ccee-447d-8070-b84bb69c718b
+                          - id: 4481509
+                            name: Ticket N° e8724b6c-8d56-4ae7-9076-f5b51b265837
+                          - id: 4481510
+                            name: Ticket N° 44051c4c-ecd9-45f4-82e1-a1dfa7c19c52
+                      - id: 94995
+                        name: CASHPAD894
+                        date: '2022-09-21T00:00:00Z'
+                        tickets:
+                          - id: 4472527
+                            name: Ticket N° a4c02161-36e5-4d6d-a1da-60b20ea1cd90
+                          - id: 4472528
+                            name: Ticket N° 4c1c982c-c4f5-4c6d-bea0-3bfeb3af5643
+                          - id: 4472529
+                            name: Ticket N° 881f3839-e613-4b41-a2c7-9174ba83671b
+                          - id: 4472530
+                            name: Ticket N° 1faa8207-2e41-4aa6-8270-3157317607dc
+                          - id: 4472531
+                            name: Ticket N° eaaf39d9-4b61-49b2-96b0-88c790be949b
+                          - id: 4472532
+                            name: Ticket N° 287ed322-8a4e-4faa-8997-89107a514a6c
+                          - id: 4472533
+                            name: Ticket N° f6afefc5-b3a0-4d6c-b594-d529d32bb261
+                          - id: 4472534
+                            name: Ticket N° 0cd32183-2d14-44e2-b08c-d6b881e591bd
+                          - id: 4472535
+                            name: Ticket N° 433e5718-787d-46cb-ae68-9b26c4925671
+                          - id: 4472536
+                            name: Ticket N° 07d1dd1f-dcc9-4c02-a33f-68a1a5c8d7c1
+                          - id: 4472537
+                            name: Ticket N° 0ec3aafd-9410-4d55-b04c-9d2f24befe92
+                          - id: 4472538
+                            name: Ticket N° 852bf4d2-74d0-4e58-91d7-40d24541fa34
+                          - id: 4472539
+                            name: Ticket N° fddf9637-8008-4761-bebd-30e4e964e91e
+                          - id: 4472540
+                            name: Ticket N° e884ad1e-6153-4d7a-afe4-67b85fcb05c7
+                          - id: 4472541
+                            name: Ticket N° 56da7e0c-147d-4d16-816a-2076cc5d7d75
+                          - id: 4472542
+                            name: Ticket N° fe84afee-a369-4e4c-80f5-f1684c0be123
+                          - id: 4472543
+                            name: Ticket N° 3958a7ad-341a-47a2-a41e-f806cdcd84cc
+                          - id: 4472544
+                            name: Ticket N° 87b3b80b-dbec-475a-82c7-e14098bd9a41
+                          - id: 4472545
+                            name: Ticket N° 678a6db2-f7f0-4786-9ca5-1207e527cb0a
+                          - id: 4472546
+                            name: Ticket N° d3f643de-c1f9-4460-925d-0bb3cdb20c21
+                          - id: 4472547
+                            name: Ticket N° 06b3de0b-bed0-4781-9b56-53ce92fc9118
+                          - id: 4472548
+                            name: Ticket N° 24e659bb-d11a-4444-b260-d7ca9c19d2f2
+                          - id: 4472549
+                            name: Ticket N° 2ad3732a-d3b5-496a-903b-9e492bc57b0d
+                          - id: 4472550
+                            name: Ticket N° 9ca75de9-33f7-43b6-8f23-84e7fc8b95f9
+                          - id: 4472551
+                            name: Ticket N° 224f7cce-cb49-49bc-a784-11472ac2e719
+                          - id: 4472552
+                            name: Ticket N° 2f265cb5-0875-4555-b897-ad4fa4d837f8
+                          - id: 4472553
+                            name: Ticket N° baeb21e2-50bb-43e3-b272-ecd7b7578b15
+                      - id: 94819
+                        name: CASHPAD893
+                        date: '2022-09-20T00:00:00Z'
+                        tickets:
+                          - id: 4465074
+                            name: Ticket N° 1296d4c5-3ea7-46c1-a66e-3a8d5e67018e
+                          - id: 4465075
+                            name: Ticket N° 9183df19-224e-4742-8ca0-14e326d25b99
+                          - id: 4465076
+                            name: Ticket N° 577a162a-4386-4f95-b04b-3f15bb47507b
+                          - id: 4465077
+                            name: Ticket N° af433fb8-669d-4ca1-aeda-26beaccffd52
+                          - id: 4465078
+                            name: Ticket N° 1f82316c-5782-406a-848b-4e6a07df960c
+                          - id: 4465079
+                            name: Ticket N° 8415438c-e8a4-4f73-8045-e35522287c63
+                          - id: 4465080
+                            name: Ticket N° 602d1fc2-316c-4bcc-aebc-5a5dbdc26d92
+                          - id: 4465081
+                            name: Ticket N° f9665feb-5214-44af-ba55-e59a40877571
+                          - id: 4465082
+                            name: Ticket N° e4c3b0ab-e93a-473d-a302-44e665f593f7
+                          - id: 4465083
+                            name: Ticket N° 15daa2d1-4d50-4c91-b9ea-2b630f8c3171
+                          - id: 4465084
+                            name: Ticket N° 47293d40-bdd9-4225-8fb6-af5e21342a68
+                          - id: 4465085
+                            name: Ticket N° ace5b039-170f-4ca0-a873-2ca8981a9e73
+                          - id: 4465086
+                            name: Ticket N° 1069f0d9-9dbb-498f-9d6f-25ff8b382e9b
+                          - id: 4465087
+                            name: Ticket N° c73efc56-8859-4a78-a243-ee740370669a
+                          - id: 4465088
+                            name: Ticket N° 7a7da5d0-bb39-4e76-b133-084ef520469c
+                          - id: 4465089
+                            name: Ticket N° 399ed4d2-dbf6-47d9-ad26-91094303d069
+                          - id: 4465090
+                            name: Ticket N° 045839a2-455d-45bb-931a-b44fc2577db4
+                          - id: 4465091
+                            name: Ticket N° 5141103c-b053-471d-af7e-f6143a7899b8
+                          - id: 4465092
+                            name: Ticket N° a10fc1e3-666c-4526-a38a-3d56bc9f7e66
+                          - id: 4465093
+                            name: Ticket N° ad73bc61-4d1a-4b3a-8ac4-bcc977fa6977
+                          - id: 4465094
+                            name: Ticket N° 50ed744c-0b03-4d1a-bd63-838e7d603f63
+                          - id: 4465095
+                            name: Ticket N° edb72192-5ca8-4b54-8c0c-d1e8e0576ba4
+                          - id: 4465096
+                            name: Ticket N° 3faa5722-0d36-42e5-be92-e6d6708a2577
+                      - id: 94623
+                        name: CASHPAD892
+                        date: '2022-09-19T00:00:00Z'
+                        tickets:
+                          - id: 4458611
+                            name: Ticket N° 295e0b6b-8ac8-42db-a764-49ad54630a72
+                          - id: 4458612
+                            name: Ticket N° 23c80e8b-0e5a-4fa1-b7bf-41658ec4b05b
+                          - id: 4458613
+                            name: Ticket N° 3df0d7c7-db29-4b68-b21b-ec543c9ec05b
+                          - id: 4458614
+                            name: Ticket N° 351a1c84-1054-4c4a-a380-cb7225236ca2
+                          - id: 4458615
+                            name: Ticket N° 2568c880-d298-41ab-898f-c9a52bb57255
+                          - id: 4458616
+                            name: Ticket N° c11f7ce3-a355-4b68-8865-7e94c063a39d
+                          - id: 4458617
+                            name: Ticket N° 2ebb8c4e-d9af-4f38-ab45-1c11b0541964
+                          - id: 4458618
+                            name: Ticket N° 3f7543f8-fb92-4451-9117-6802baad1be9
+                          - id: 4458619
+                            name: Ticket N° 2e89e58e-72e2-447a-8204-01ce9ab90d57
+                          - id: 4458620
+                            name: Ticket N° 26fcdeb0-df25-4bcd-8a85-c621bf9e28fc
+                          - id: 4458621
+                            name: Ticket N° 0d9c2e3e-099d-47bf-aebc-a310cfdfdb17
+                          - id: 4458622
+                            name: Ticket N° 4aad5812-a8e4-4ed5-8838-d948656b9513
+                          - id: 4458623
+                            name: Ticket N° a726ebcf-4fa4-415d-8983-ba7142988741
+                          - id: 4458624
+                            name: Ticket N° b16cabd8-3c54-4696-821f-eb9d7de59443
+                          - id: 4458625
+                            name: Ticket N° 53ac556e-59d5-4110-abe8-9d3b6e7cd5cd
+                          - id: 4458626
+                            name: Ticket N° 47709010-6a4f-499d-9d1e-2e35c379fe94
+                          - id: 4458627
+                            name: Ticket N° 235cc2ee-c305-473b-bcf9-a95f2ff0d25d
+                          - id: 4458628
+                            name: Ticket N° ecd47fe2-a892-44ad-a537-40135f3b8d8f
+                          - id: 4458629
+                            name: Ticket N° 7c8abe89-ff45-4508-b179-5d5d4e36f1fe
+                          - id: 4458630
+                            name: Ticket N° 3568eb08-f5b2-4d68-a0b5-aac8956321db
+                          - id: 4458631
+                            name: Ticket N° 70de7fd4-1b77-4c8b-b580-ff4a7a4a9b13
+                          - id: 4458632
+                            name: Ticket N° 48546978-2d80-47e9-b126-6e0b48b5f36e
+                          - id: 4458633
+                            name: Ticket N° 6cb44f76-afe0-4c63-a899-337a83be43cb
+                          - id: 4458634
+                            name: Ticket N° d0ade923-d195-4ca1-a510-8ef33fe4353b
+                          - id: 4458635
+                            name: Ticket N° 01578da3-54a9-433d-93dc-30a0e38589b9
+                          - id: 4458636
+                            name: Ticket N° da9294c0-d77a-4f37-bd04-f557eb7e32be
+                          - id: 4458637
+                            name: Ticket N° ad67d248-38aa-42b8-90b5-0592923baabf
+                          - id: 4458638
+                            name: Ticket N° b0a8c91b-311b-4f62-9383-deba43ecd12d
+                          - id: 4458639
+                            name: Ticket N° 543634cf-3abf-4a60-a8e2-848d7cdded7f
+                          - id: 4458640
+                            name: Ticket N° 1dc36489-febd-4735-ae5f-79fd282e3bff
+                          - id: 4458641
+                            name: Ticket N° 95440652-3d24-47ea-9c90-74bbd76d00cd
+                          - id: 4458642
+                            name: Ticket N° 9e40078b-d956-4b9b-9007-ebd6cb816a62
+                          - id: 4458643
+                            name: Ticket N° 0671fd9e-b29b-4a2d-b095-dffd5a95cc92
+                          - id: 4458644
+                            name: Ticket N° f2f5aa99-42bd-4aba-9479-53c1c8e7a212
+                          - id: 4458645
+                            name: Ticket N° 72a40089-8ea2-42fe-a765-ddc06d8036ec
+                      - id: 94465
+                        name: CASHPAD891
+                        date: '2022-09-18T00:00:00Z'
+                        tickets:
+                          - id: 4451758
+                            name: Ticket N° db0c77cf-0201-4e10-9083-4f37050ee9ca
+                          - id: 4451759
+                            name: Ticket N° 9ec10979-5a61-4b8d-950c-4d1f2612c56f
+                          - id: 4451760
+                            name: Ticket N° 4b692c74-c0a5-4c6a-8800-6c661073952b
+                          - id: 4451761
+                            name: Ticket N° ee0f3dd8-6e22-4785-aa03-984d0f058aeb
+                          - id: 4451762
+                            name: Ticket N° 04c4e507-c33e-4a4a-98c1-32b403bb89ec
+                          - id: 4451763
+                            name: Ticket N° b078f382-1261-41b9-aadf-260e0c27cf87
+                          - id: 4451764
+                            name: Ticket N° 51bcbeeb-0c8f-463e-b8f8-3d64c9e68e11
+                          - id: 4451765
+                            name: Ticket N° 5cf12c93-8395-4173-8c4b-a95a74fbef13
+                          - id: 4451766
+                            name: Ticket N° cb864e41-8609-4c3f-84c9-dd56da791936
+                          - id: 4451767
+                            name: Ticket N° 8e6a9ab5-0ae5-41c6-ba67-a35b4fcaac4a
+                          - id: 4451768
+                            name: Ticket N° 7618fc4a-911d-4cea-afb2-a1241a768f65
+                          - id: 4451769
+                            name: Ticket N° 8f4bd823-e8e0-4851-a307-73b59494610b
+                          - id: 4451770
+                            name: Ticket N° 44de08e5-9626-436f-ba38-4d68a286dbf3
+                          - id: 4451771
+                            name: Ticket N° b212dc3c-de37-4619-8361-f5ad8fb1713b
+                          - id: 4451772
+                            name: Ticket N° a9c68e19-8169-48ce-8e15-ba1047fa7fcf
+                          - id: 4451773
+                            name: Ticket N° 3c1ef818-b3e1-4cfc-9b23-1641fdd6613e
+                          - id: 4451774
+                            name: Ticket N° 71b55a36-60c2-41e5-abd1-f881e5198e53
+                          - id: 4451775
+                            name: Ticket N° 6f63d354-475f-4582-ace9-33edc09f1b69
+                          - id: 4451776
+                            name: Ticket N° 7f92f385-4f39-402d-afcc-45c9228bc0bd
+                          - id: 4451777
+                            name: Ticket N° d18c237f-852b-4509-9634-896b570b1ce0
+                          - id: 4451778
+                            name: Ticket N° 82ece9cb-4242-4716-bef3-c55b91dbee50
+                          - id: 4451779
+                            name: Ticket N° 318ae8dc-6aa1-4cdd-84e0-1d21896bb86c
+                          - id: 4451780
+                            name: Ticket N° 10c40a19-b635-4f2d-b029-098d3e27d7ef
+                          - id: 4451781
+                            name: Ticket N° 04df62d5-b941-446a-b380-d8f575436b58
+                          - id: 4451782
+                            name: Ticket N° 9526e95a-eac7-4477-b73d-e6b9e744b285
+                          - id: 4451783
+                            name: Ticket N° 0651317c-de76-4917-8210-a89a97fb1284
+                          - id: 4451784
+                            name: Ticket N° 7eacc06c-4ba2-43a6-980d-e37db9234dfe
+                          - id: 4451785
+                            name: Ticket N° 7ecb1c14-331f-4d24-8d8d-46e2d85f089e
+                          - id: 4451786
+                            name: Ticket N° bcf5b7a2-47ce-4c3f-a8af-c0fb8d04c961
+                          - id: 4451787
+                            name: Ticket N° e25c7249-fbb3-4210-9514-8b274a7878c3
+                          - id: 4451788
+                            name: Ticket N° fd190c4f-6dd1-490a-8263-6f9dd4ea9d8d
+                          - id: 4451789
+                            name: Ticket N° 0741065d-30b7-40c7-a6ff-680d8c16e3a0
+                      - id: 94339
+                        name: CASHPAD890
+                        date: '2022-09-17T00:00:00Z'
+                        tickets:
+                          - id: 4441239
+                            name: Ticket N° e9b4193a-87f8-4cc4-9253-64b2d67f7f6b
+                          - id: 4441245
+                            name: Ticket N° 4fe5c542-e10b-4000-bbe6-8c293c741ec0
+                          - id: 4441247
+                            name: Ticket N° f588e42b-1888-4f39-bd24-e89d20a1e36c
+                          - id: 4441249
+                            name: Ticket N° bcca49ce-882b-4725-a841-60a6713168b6
+                          - id: 4441252
+                            name: Ticket N° 68d0c13b-2b56-459c-9c6d-cd3c5c7814d1
+                          - id: 4441254
+                            name: Ticket N° 7626592e-21ff-4431-bc8a-ddf88094c1c1
+                          - id: 4441256
+                            name: Ticket N° bbc54947-5cd3-419f-a5b9-ce0f84c0b848
+                          - id: 4441259
+                            name: Ticket N° 22146bdb-826c-4abd-8a32-1487ea8bfad9
+                          - id: 4441261
+                            name: Ticket N° 8f584717-f020-4d9f-a0c3-d1535807825e
+                          - id: 4441262
+                            name: Ticket N° 3d19db61-db99-43c9-a18a-372d527d12ff
+                          - id: 4441263
+                            name: Ticket N° 52720e41-e8b5-4bab-a6ca-b577aa381657
+                          - id: 4441264
+                            name: Ticket N° d04b0e7d-155e-4db9-b98f-249c670e9afc
+                          - id: 4441265
+                            name: Ticket N° 403f73d2-9b5e-49d9-b8c5-6b0013ff95a3
+                          - id: 4441266
+                            name: Ticket N° d39fe617-5857-47a8-98f3-3e1c30b224b8
+                          - id: 4441267
+                            name: Ticket N° cc5730cd-d3f5-4a64-8a40-9fcba6dd90d9
+                          - id: 4441268
+                            name: Ticket N° 32a81ebc-1cb1-4f48-adc1-d5e05da30408
+                          - id: 4441269
+                            name: Ticket N° c2d660db-d7ba-4792-b09e-080459edfab1
+                          - id: 4441270
+                            name: Ticket N° 7b931df2-a451-450d-9153-b3f4345addf4
+                          - id: 4441271
+                            name: Ticket N° eb91b17d-c0c5-4843-9a32-522060b97d0c
+                          - id: 4441272
+                            name: Ticket N° 643280f4-bad1-4105-a59c-fdb346048e59
+                          - id: 4441273
+                            name: Ticket N° c8583c27-c096-4ec2-b980-ae86c1fc96d3
+                          - id: 4441274
+                            name: Ticket N° 93ebfef5-4487-4d7b-83ad-dfb90469618b
+                          - id: 4441275
+                            name: Ticket N° 78ba79a1-3c6b-45d0-b80f-ff00e3d66f1c
+                          - id: 4441276
+                            name: Ticket N° 9b16d61d-3782-4408-ac03-cbd9146d5003
+                          - id: 4441277
+                            name: Ticket N° 0afa6fa8-2400-44b5-b4a3-16860fc2dc5c
+                          - id: 4441278
+                            name: Ticket N° 3986efb0-ec54-42d4-8417-aadcecbcfb13
+                          - id: 4441279
+                            name: Ticket N° 48f849e4-baa6-4930-950a-2853605e27a1
+                          - id: 4441280
+                            name: Ticket N° 5b42ec34-e718-41cf-bf2d-f5b4ba5e7a6d
+                          - id: 4441281
+                            name: Ticket N° 6cebd4ce-94aa-4b16-91e3-ca0dbe7edcb5
+                          - id: 4441282
+                            name: Ticket N° 32da3319-5988-4e93-ab30-4f2326c88810
+                          - id: 4441283
+                            name: Ticket N° 542bcae8-b2c6-4fd9-acdb-e5ccfc662b2b
+                          - id: 4441284
+                            name: Ticket N° f56eed5e-e6a2-4db2-8e09-3767fbd19ef0
+                          - id: 4441285
+                            name: Ticket N° 7afaed87-5076-431e-9df9-ebeec3458936
+                          - id: 4441286
+                            name: Ticket N° a4c0cf55-cddc-48fd-9703-7f3b79905d70
+                          - id: 4441287
+                            name: Ticket N° 2f194850-2d73-4087-9dc4-b4ff5c857fb1
+                      - id: 94198
+                        name: CASHPAD889
+                        date: '2022-09-16T00:00:00Z'
+                        tickets:
+                          - id: 4431738
+                            name: Ticket N° 5ec7b950-7b62-46bd-9bae-347b5cdd4765
+                          - id: 4431739
+                            name: Ticket N° c5b69818-c6c4-4f76-b528-e3909139fa50
+                          - id: 4431740
+                            name: Ticket N° 11cf74c1-37d1-4aab-bdcd-cc4180827339
+                          - id: 4431741
+                            name: Ticket N° 74395b62-9465-4522-b03d-a373e6f6ccd8
+                          - id: 4431742
+                            name: Ticket N° 1b827670-6719-4c74-a272-728d31f38830
+                          - id: 4431743
+                            name: Ticket N° 8596592a-b37d-461e-9fa6-3c464cc09e4d
+                          - id: 4431744
+                            name: Ticket N° 5997f084-1217-4eda-982e-dbb92ab10074
+                          - id: 4431745
+                            name: Ticket N° 6c182afd-2928-4d5b-af9f-9960ba58fdb7
+                          - id: 4431746
+                            name: Ticket N° 66bae4b7-e4c1-48df-90db-8c4514919d3e
+                          - id: 4431747
+                            name: Ticket N° c780b5fd-659b-4411-ba5b-2b0ddac9644e
+                          - id: 4431748
+                            name: Ticket N° 68305526-a5f6-4c21-ba51-74ae9ed90863
+                          - id: 4431749
+                            name: Ticket N° b9d6190f-4484-4222-a327-0fead2ae887a
+                          - id: 4431750
+                            name: Ticket N° e2553eb4-0f30-40a7-8f60-0e62fe0e9d9b
+                          - id: 4431751
+                            name: Ticket N° cd27e98e-79ae-4b6d-bb31-1cb879e1045e
+                          - id: 4431752
+                            name: Ticket N° f543d4b9-303f-448f-8d0d-9730e7cc1dc7
+                          - id: 4431753
+                            name: Ticket N° 4f212e28-bb5c-4269-8307-83c2d16c83a6
+                          - id: 4431754
+                            name: Ticket N° 31ed6ab6-4877-42cd-88b1-122759348f15
+                          - id: 4431755
+                            name: Ticket N° f163b765-1b0d-463b-814c-0953bcb88c69
+                          - id: 4431756
+                            name: Ticket N° e2eed1fa-1152-42f0-8df9-900fdc695dfc
+                          - id: 4431757
+                            name: Ticket N° 17cf443d-1ebb-4f82-90c2-4414bd14dd7f
+                          - id: 4431758
+                            name: Ticket N° 1b1f8d53-6634-4416-a764-f0f121704f10
+                          - id: 4431759
+                            name: Ticket N° 9d6fa641-789c-4642-abbb-cdf5248e33cb
+                          - id: 4431760
+                            name: Ticket N° bea9aecd-5765-4900-b9c5-2fabb66d0cbb
+                          - id: 4431761
+                            name: Ticket N° 2a8b9673-89f1-4d1c-8b48-2bb795b5b733
+                          - id: 4431762
+                            name: Ticket N° aa24c5c4-2e8b-4bfc-aa3b-f8b858394911
+                          - id: 4431763
+                            name: Ticket N° 154f1519-42f0-4310-b451-16da08551bac
+                          - id: 4431764
+                            name: Ticket N° b6262e66-1213-474b-bc31-78d135a5a352
+                          - id: 4431765
+                            name: Ticket N° 14ddb045-3354-43db-9952-4f7831e38455
+                          - id: 4431766
+                            name: Ticket N° e3fafdbb-9746-4f48-a2ac-14942d91063e
+                          - id: 4431767
+                            name: Ticket N° 0a9b56a2-5866-4e64-b5be-045d0003adfd
+                          - id: 4431768
+                            name: Ticket N° 3a9021d4-57c9-4633-8bc4-e5f838f377d6
+                          - id: 4431769
+                            name: Ticket N° 83e638b9-a1bd-419f-ad3f-69dcc7f8f182
+                          - id: 4431770
+                            name: Ticket N° 14e076f4-884e-46f3-9a81-51d31408984d
+                          - id: 4431771
+                            name: Ticket N° c4c2cd0e-79ff-49c4-a78e-3d6079444e2b
+                          - id: 4431772
+                            name: Ticket N° 80d6fea2-ae1f-4337-bc7f-ac0dbb475d6b
+                          - id: 4431773
+                            name: Ticket N° e616076d-a4e3-4cb5-844d-c11a6dd829d5
+                          - id: 4431774
+                            name: Ticket N° 3f493414-fa31-48f2-b0a4-967c4298f1f9
+                          - id: 4431775
+                            name: Ticket N° 0799335f-c1a0-4486-b06e-d61a23aeb8bd
+                          - id: 4431776
+                            name: Ticket N° f706d66b-e93c-4a97-82dc-22b6dd14bf83
+                          - id: 4431777
+                            name: Ticket N° cfc7f0fe-3f00-4fe5-a535-439909614906
+                    page: 0
+                    elements: 10
+              examples:
+                Closures:
+                  value:
+                    content:
+                      - id: 95581
+                        name: CAISSE
+                        date: '2022-09-25T00:00:00Z'
+                        tickets:
+                          - id: 4509705
+                            name: Ticket N° ac73466f-0175-4b5b-9c58-1d952c04a9cd
+                          - id: 4509706
+                            name: Ticket N° 5c523d54-282e-4466-8490-4456e69da43f
+                    page: 0
+                    elements: 1
+        '401':
+          description: Unauthorized
+        '555':
+          description: 'Error, please, contact us.'
+      operationId: get-closures
+      description: Use this endpoint to retrieve the list of closures between two dates
+      security:
+        - oauth2: []
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+        - schema:
+            type: string
+          in: query
+          name: date_from
+          description: 'Starting date (Format : YYYY-MM-DD)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: date_to
+          description: 'Ending date (Format : YYYY-MM-DD)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: pageNumber
+          description: The page number (starting at 0)
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: numberOfRows
+          description: The number of rows to return
+          required: true
 components:
   schemas:
     Bills-Model:
