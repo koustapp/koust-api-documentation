@@ -236,7 +236,6 @@ paths:
           description: 'Error, please, contact us.'
       description: Use this endpoint to retrieve the list of ingredients
       parameters:
-        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
         - schema:
             type: number
           in: query
@@ -254,6 +253,8 @@ paths:
           in: query
           name: search
           description: Ingredient name searched
+      security:
+        - oauth2: []
   /recipes:
     get:
       summary: List recipes
@@ -750,7 +751,6 @@ paths:
       operationId: get-recipes
       description: Use this endpoint to retrieve the list of recipes.
       parameters:
-        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
         - schema:
             type: number
           in: query
@@ -768,6 +768,8 @@ paths:
           in: query
           name: search
           description: Recipe name searched
+      security:
+        - oauth2: []
   /bills:
     post:
       summary: Bills Webhook
@@ -822,7 +824,6 @@ paths:
           [Weebhook-Model](KoustPublic.v1.yaml/components/schemas/Webhook_Model)
       parameters:
         - $ref: ./Authentication.v1.yaml#/components/parameters/Content-Type
-        - $ref: '#/components/parameters/Authorization'
       security:
         - oauth2: []
       requestBody:
@@ -945,7 +946,6 @@ paths:
       description: |
         Use this endpoint to retrieve the list of bills between two dates
       parameters:
-        - $ref: '#/components/parameters/Authorization'
         - schema:
             type: string
           in: query
@@ -970,6 +970,8 @@ paths:
           name: numberOfRows
           description: The number of rows to return
           required: true
+      security:
+        - oauth2: []
   /inventories:
     get:
       summary: List inventories
@@ -1032,7 +1034,6 @@ paths:
         '555': {}
       operationId: get-inventories
       parameters:
-        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
         - schema:
             type: string
           in: query
@@ -1056,6 +1057,8 @@ paths:
           description: The number of rows to return
           required: true
       description: Use this endpoint to retrieve the list of inventories between two dates
+      security:
+        - oauth2: []
   '/inventories/{id}':
     parameters:
       - schema:
@@ -1178,7 +1181,6 @@ paths:
                     elements: 2
       operationId: get-inventories-id
       parameters:
-        - $ref: ./KoustPOS.v1.yaml#/components/parameters/Authorization
         - schema:
             type: number
           in: query
@@ -1192,6 +1194,8 @@ paths:
           description: The number of rows to return
           required: true
       description: Use this endpoint to retrieve the detail of an inventory
+      security:
+        - oauth2: []
   /closures:
     get:
       summary: List closures
