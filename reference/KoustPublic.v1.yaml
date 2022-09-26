@@ -950,13 +950,13 @@ paths:
             type: string
           in: query
           name: date_from
-          description: Starting date
+          description: 'Starting date (Format : YYYY-MM-DD)'
           required: true
         - schema:
             type: string
           in: query
           name: date_to
-          description: Ending date
+          description: 'Ending date (Format : YYYY-MM-DD)'
           required: true
         - schema:
             type: string
@@ -1037,12 +1037,12 @@ paths:
             type: string
           in: query
           name: date_from
-          description: Starting date
+          description: 'Starting date (Format : YYYY-MM-DD)'
         - schema:
             type: string
           in: query
           name: date_to
-          description: Ending date
+          description: 'Ending date (Format : YYYY-MM-DD)'
         - schema:
             type: number
           in: query
