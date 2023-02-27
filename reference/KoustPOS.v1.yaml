@@ -16,7 +16,7 @@ info:
 
     If you have questions, we're available at [contact@koust.fr](mailto:contact@koust.fr) to help.
 servers:
-  - url: 'https://api.koustapp.com/apex/rest/public_api'
+  - url: 'https://koustapp.com/apex/rest/public_api'
 paths:
   /pos/catalog:
     parameters: []
