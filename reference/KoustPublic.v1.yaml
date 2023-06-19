@@ -2063,35 +2063,6 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  content:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        turnover_excl_tax:
-                          type:
-                            - integer
-                            - number
-                        quantity:
-                          type: integer
-                        article:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                            name:
-                              type: string
-                            price:
-                              type:
-                                - integer
-                                - number
-                            mode:
-                              type: string
-                  elements:
-                    type: integer
                 x-examples:
                   example-1:
                     content:
@@ -2165,6 +2136,39 @@ paths:
                           name: 'Chèvre '
                           mode: Eat In
                     elements: 9
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        turnover_excl_tax:
+                          type:
+                            - integer
+                            - number
+                        quantity:
+                          type: integer
+                        article:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            price:
+                              type:
+                                - integer
+                                - number
+                            mode:
+                              type: string
+                            sku_ref:
+                              type: string
+                              x-stoplight:
+                                id: 96xv5sv9xgg1s
+                  elements:
+                    type: integer
               examples:
                 Ticket Details:
                   value:
@@ -2197,6 +2201,221 @@ paths:
       description: Use this endpoint to retrieve a ticket detail
       tags:
         - Closures
+  /loss:
+    get:
+      summary: List loss
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        date:
+                          type: string
+                  page:
+                    type: integer
+                  elements:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    content:
+                      - id: 1
+                        date: '2023-06-16T00:00:00Z'
+                      - id: 42
+                        date: '2023-06-15T00:00:00Z'
+                      - id: 566
+                        date: '2023-06-14T00:00:00Z'
+                    page: 0
+                    elements: 100
+              examples:
+                Closures:
+                  value:
+                    content:
+                      - id: 95581
+                        name: CAISSE
+                        date: '2022-09-25T00:00:00Z'
+                        tickets:
+                          - id: 4509705
+                            name: Ticket N° ac73466f-0175-4b5b-9c58-1d952c04a9cd
+                          - id: 4509706
+                            name: Ticket N° 5c523d54-282e-4466-8490-4456e69da43f
+                    page: 0
+                    elements: 1
+        '401':
+          description: Unauthorized
+        '555':
+          description: 'Error, please, contact us.'
+      operationId: get-loss
+      description: Use this endpoint to retrieve the list of loss between two dates
+      security:
+        - oauth2: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: date_from
+          description: 'Starting date (Format : YYYY-MM-DD)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: date_to
+          description: 'Ending date (Format : YYYY-MM-DD)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: pageNumber
+          description: The page number (starting at 0)
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: numberOfRows
+          description: The number of rows to return
+          required: true
+      tags:
+        - Closures
+    parameters: []
+  '/loss/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get loss detail
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        total_excl_tax:
+                          type: number
+                        unit_price_excl_tax:
+                          type: number
+                        quantity:
+                          type: integer
+                        items:
+                          type: object
+                          properties:
+                            ingredient_id:
+                              type: integer
+                            ingredient_name:
+                              type: string
+                            recipe_id:
+                              type: integer
+                            recipe_name:
+                              type: string
+                        type:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name_fr:
+                              type: string
+                            name_en:
+                              type: string
+                  elements:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    content:
+                      - id: 117948
+                        total_excl_tax: 26.7
+                        unit_price_excl_tax: 8.9
+                        quantity: 3
+                        items:
+                          ingredient_id: 1111939
+                          ingredient_name: 'Mélange 4 fromages râpés 1 kg '
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                      - id: 118209
+                        total_excl_tax: 18.9
+                        unit_price_excl_tax: 1.35
+                        quantity: 14
+                        items:
+                          ingredient_id: 1111911
+                          ingredient_name: Mousse au chocolat
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                      - id: 179970
+                        total_excl_tax: 2.8
+                        unit_price_excl_tax: 1.4
+                        quantity: 2
+                        items:
+                          recipe_id: 111113
+                          recipe_name: Tiramissu café
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                    elements: 3
+              examples:
+                example:
+                  value:
+                    content:
+                      - item_ingredient_id: 856181
+                        item_ingredient_name: Blette (pied entier)
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 8
+                        item_barcodes: []
+                      - item_ingredient_id: 856197
+                        item_ingredient_name: Carotte violette
+                        item_ingredient_unit: le kilo
+                        item_ingredient_unit_counting:
+                          id: -1
+                          libelle: le kilo
+                        item_ingredient_category:
+                          id: 195953
+                          name: BIERE
+                        item_quantities:
+                          - item_quantity: 2.2
+                        item_barcodes: []
+                    page: 0
+                    elements: 2
+        '401':
+          description: Unauthorized
+        '555':
+          description: 'Error, please, contact us.'
+      operationId: get-loss-id
+      parameters: []
+      description: Use this endpoint to retrieve the detail of a loss
+      security:
+        - oauth2: []
+      tags:
+        - Inventories
 components:
   schemas:
     Bills-Model:
