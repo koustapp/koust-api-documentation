@@ -2145,9 +2145,7 @@ paths:
                         id:
                           type: integer
                         turnover_excl_tax:
-                          type:
-                            - integer
-                            - number
+                          type: number
                         quantity:
                           type: integer
                         article:
@@ -2158,9 +2156,7 @@ paths:
                             name:
                               type: string
                             price:
-                              type:
-                                - integer
-                                - number
+                              type: number
                             mode:
                               type: string
                             sku_ref:
@@ -2284,7 +2280,7 @@ paths:
           description: The number of rows to return
           required: true
       tags:
-        - Closures
+        - Loss
     parameters: []
   '/loss/{id}':
     parameters:
@@ -2415,7 +2411,7 @@ paths:
       security:
         - oauth2: []
       tags:
-        - Inventories
+        - Loss
 components:
   schemas:
     Bills-Model:
