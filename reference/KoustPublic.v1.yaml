@@ -2233,19 +2233,17 @@ paths:
                     page: 0
                     elements: 100
               examples:
-                Closures:
+                Loss:
                   value:
                     content:
-                      - id: 95581
-                        name: CAISSE
-                        date: '2022-09-25T00:00:00Z'
-                        tickets:
-                          - id: 4509705
-                            name: Ticket N° ac73466f-0175-4b5b-9c58-1d952c04a9cd
-                          - id: 4509706
-                            name: Ticket N° 5c523d54-282e-4466-8490-4456e69da43f
+                      - id: 1
+                        date: '2023-06-16T00:00:00Z'
+                      - id: 42
+                        date: '2023-06-15T00:00:00Z'
+                      - id: 566
+                        date: '2023-06-14T00:00:00Z'
                     page: 0
-                    elements: 1
+                    elements: 100
         '401':
           description: Unauthorized
         '555':
@@ -2375,32 +2373,40 @@ paths:
                 example:
                   value:
                     content:
-                      - item_ingredient_id: 856181
-                        item_ingredient_name: Blette (pied entier)
-                        item_ingredient_unit: le kilo
-                        item_ingredient_unit_counting:
-                          id: -1
-                          libelle: le kilo
-                        item_ingredient_category:
-                          id: 195953
-                          name: BIERE
-                        item_quantities:
-                          - item_quantity: 8
-                        item_barcodes: []
-                      - item_ingredient_id: 856197
-                        item_ingredient_name: Carotte violette
-                        item_ingredient_unit: le kilo
-                        item_ingredient_unit_counting:
-                          id: -1
-                          libelle: le kilo
-                        item_ingredient_category:
-                          id: 195953
-                          name: BIERE
-                        item_quantities:
-                          - item_quantity: 2.2
-                        item_barcodes: []
-                    page: 0
-                    elements: 2
+                      - id: 117948
+                        total_excl_tax: 26.7
+                        unit_price_excl_tax: 8.9
+                        quantity: 3
+                        items:
+                          ingredient_id: 1111939
+                          ingredient_name: 'Mélange 4 fromages râpés 1 kg '
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                      - id: 118209
+                        total_excl_tax: 18.9
+                        unit_price_excl_tax: 1.35
+                        quantity: 14
+                        items:
+                          ingredient_id: 1111911
+                          ingredient_name: Mousse au chocolat
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                      - id: 179970
+                        total_excl_tax: 2.8
+                        unit_price_excl_tax: 1.4
+                        quantity: 2
+                        items:
+                          recipe_id: 111113
+                          recipe_name: Tiramissu café
+                        type:
+                          id: 1
+                          name_fr: DLC dépassé
+                          name_en: Use-by date expired
+                    elements: 3
         '401':
           description: Unauthorized
         '555':
