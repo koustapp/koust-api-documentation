@@ -443,6 +443,10 @@ paths:
                               quantity: 70
                     page: 0
                     elements: 1
+                required:
+                  - content
+                  - page
+                  - elements
                 properties:
                   content:
                     type: array
@@ -450,6 +454,9 @@ paths:
                     minItems: 1
                     items:
                       type: object
+                      required:
+                        - id
+                        - name
                       properties:
                         id:
                           type: number
@@ -514,6 +521,10 @@ paths:
                             properties:
                               id:
                                 type: number
+                              name:
+                                type: string
+                                x-stoplight:
+                                  id: 9j9cin3ccbdmg
                               unit_price:
                                 type: number
                               amount:
@@ -612,17 +623,10 @@ paths:
                                     type: string
                                   quantity:
                                     type: number
-                      required:
-                        - id
-                        - name
                   page:
                     type: number
                   elements:
                     type: number
-                required:
-                  - content
-                  - page
-                  - elements
               examples:
                 example:
                   value:
