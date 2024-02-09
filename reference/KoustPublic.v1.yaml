@@ -319,6 +319,7 @@ paths:
                             loss: 0
                         subrecipes:
                           - id: 31441
+                            name: Chantilly
                             unit_price: 0.15
                             amount: 1
                             unit: Portion(s)
@@ -405,6 +406,7 @@ paths:
                             loss: 0
                         subrecipes:
                           - id: 31441
+                            name: Chantilly
                             unit_price: 0.15
                             amount: 1
                             unit: Portion(s)
@@ -682,6 +684,7 @@ paths:
                             loss: 0
                         subrecipes:
                           - id: 31441
+                            name: Chantilly
                             unit_price: 0.15
                             amount: 1
                             unit: Portion(s)
