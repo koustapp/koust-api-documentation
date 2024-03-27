@@ -2178,7 +2178,8 @@ paths:
   '/productions/{id}':
     post:
       summary: Add products/recipes to a production
-      tags: []
+      tags:
+        - Production
       responses:
         '200':
           description: OK
