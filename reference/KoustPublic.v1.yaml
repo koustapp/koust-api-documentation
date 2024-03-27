@@ -2524,8 +2524,6 @@ paths:
   /destination:
     get:
       summary: List destination
-      tags:
-        - NEW
       responses:
         '200':
           description: OK
