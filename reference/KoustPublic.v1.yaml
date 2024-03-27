@@ -2530,17 +2530,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  content:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        name:
-                          type: string
+                type: array
                 x-examples:
                   Example 1:
                     content:
@@ -2548,14 +2538,28 @@ paths:
                         name: école du lac
                       - id: 100
                         name: Cuisine du lac
+                items:
+                  x-stoplight:
+                    id: s1ydyl0er4bn5
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      x-stoplight:
+                        id: sr74c5o4tntmj
+                      description: "id of the destination\r\n"
+                    name:
+                      type: string
+                      x-stoplight:
+                        id: 4gzphjelp65ih
+                      description: "Name of the destination\r\n"
               examples:
                 example:
                   value:
-                    content:
-                      - id: 99
-                        name: école du lac
-                      - id: 100
-                        name: Cuisine du lac
+                    - id: 6789
+                      name: Kitchen's Storage
+                    - id: 1254
+                      name: Mr example
         '401':
           description: Unauthorized
         '555':
@@ -2564,7 +2568,10 @@ paths:
       operationId: get-destination
       security:
         - oauth2: []
-      description: Use this endpoint to retrieve a ticket detail
+      description: |-
+        Use this endpoint to get the destinations.
+
+        This endpoint is used for the **destination_id** used in **/productions** endpoint
       x-stoplight:
         id: tj8izjz14yrpx
       tags:
