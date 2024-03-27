@@ -2567,6 +2567,8 @@ paths:
       description: Use this endpoint to retrieve a ticket detail
       x-stoplight:
         id: tj8izjz14yrpx
+      tags:
+        - Destinations
 components:
   schemas:
     Bills-Model:
