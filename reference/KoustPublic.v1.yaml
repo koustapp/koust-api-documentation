@@ -1206,6 +1206,48 @@ paths:
       description: Use this endpoint to retrieve a ticket detail
       tags:
         - Closures
+  /destination:
+    get:
+      summary: List destination
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    content:
+                      - id: 99
+                        name: école du lac
+                      - id: 100
+                        name: Cuisine du lac
+                items:
+                  $ref: '#/components/schemas/Destination'
+              examples:
+                example:
+                  value:
+                    - id: 6789
+                      name: Kitchen's Storage
+                    - id: 1254
+                      name: Mr example
+        '401':
+          description: Unauthorized
+        '555':
+          description: |
+            Error, please, contact us.
+      operationId: get-destination
+      security:
+        - oauth2: []
+      description: |-
+        Use this endpoint to get the destinations.
+
+        This endpoint is used for the **destination_id** used in **/productions** endpoint
+      x-stoplight:
+        id: tj8izjz14yrpx
+      tags:
+        - Destinations
   /history_cost:
     get:
       summary: History cost
@@ -1998,6 +2040,141 @@ paths:
         - oauth2: []
       tags:
         - Loss
+  /productions:
+    post:
+      summary: Create a new production
+      tags:
+        - Production
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    x-stoplight:
+                      id: jp48dp7fyzpcm
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: 5upfadqfc150g
+                  products:
+                    type: array
+                    x-stoplight:
+                      id: xd06p9evzruy8
+                    items:
+                      x-stoplight:
+                        id: x7atvcc2fuudx
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                          x-stoplight:
+                            id: 3b2xjv1sewsfz
+                        product_id:
+                          type: integer
+                          x-stoplight:
+                            id: ef3agzkyiv7z0
+                        recipe_id:
+                          type: integer
+                          x-stoplight:
+                            id: ggmdqyb3ml1su
+                        message:
+                          type: string
+                          x-stoplight:
+                            id: usav0r6jrxlwr
+              examples:
+                Example 1:
+                  value:
+                    status: OK
+                    id: 1234
+                    products:
+                      - status: OK
+                        product_id: 3
+                      - status: OK
+                        recipe_id: 90
+                      - status: failure
+                        message: Product 90342 not found.
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    x-stoplight:
+                      id: amkxeqxgxt0gh
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: j11dh17hocbh9
+              examples:
+                Example 1:
+                  value:
+                    status: failure
+                    message: The destination is unknown.
+        '555':
+          description: |
+            Error, please, contact us.
+      operationId: post-production
+      x-stoplight:
+        id: xps072pkrpu18
+      description: This endpoint is used to create a new production on Koust
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  x-stoplight:
+                    id: xe3xt9kov5v2a
+                parts:
+                  x-stoplight:
+                    id: u827hruquf6wq
+                  type: integer
+                date:
+                  type: string
+                  x-stoplight:
+                    id: cqipl9s3js19u
+                  example: '12-31-2000 21:30:00'
+                  description: '*format : MM-DD-YYYY HH24:MI:SS*'
+                destination_id:
+                  type: integer
+                  x-stoplight:
+                    id: 3q4p4v7z4h4db
+                  description: can be found with /destination endpoint
+                products:
+                  type: array
+                  x-stoplight:
+                    id: l1pcf4otpu5t1
+                  items:
+                    $ref: '#/components/schemas/Production_detail'
+            examples:
+              Example 1:
+                value:
+                  name: Production number 1
+                  parts: 10
+                  date: '03-27-2024 16:30:00'
+                  destination_id: 345
+                  products:
+                    - product_id: 123
+                      quantity: 3
+                    - recipe_id: 23
+                      quantity: 1
+                      type_id: 34
+                    - recipe_id: 98
+                      quantity: 1
+      security:
+        - oauth2: []
   /recipes:
     get:
       summary: List recipes
@@ -2521,183 +2698,6 @@ paths:
         - oauth2: []
       tags:
         - Recipes
-  /destination:
-    get:
-      summary: List destination
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                x-examples:
-                  Example 1:
-                    content:
-                      - id: 99
-                        name: école du lac
-                      - id: 100
-                        name: Cuisine du lac
-                items:
-                  $ref: '#/components/schemas/Destination'
-              examples:
-                example:
-                  value:
-                    - id: 6789
-                      name: Kitchen's Storage
-                    - id: 1254
-                      name: Mr example
-        '401':
-          description: Unauthorized
-        '555':
-          description: |
-            Error, please, contact us.
-      operationId: get-destination
-      security:
-        - oauth2: []
-      description: |-
-        Use this endpoint to get the destinations.
-
-        This endpoint is used for the **destination_id** used in **/productions** endpoint
-      x-stoplight:
-        id: tj8izjz14yrpx
-      tags:
-        - Destinations
-  /productions:
-    post:
-      summary: Create a new production
-      tags:
-        - Production
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    x-stoplight:
-                      id: jp48dp7fyzpcm
-                  id:
-                    type: integer
-                    x-stoplight:
-                      id: 5upfadqfc150g
-                  products:
-                    type: array
-                    x-stoplight:
-                      id: xd06p9evzruy8
-                    items:
-                      x-stoplight:
-                        id: x7atvcc2fuudx
-                      type: object
-                      properties:
-                        status:
-                          type: string
-                          x-stoplight:
-                            id: 3b2xjv1sewsfz
-                        product_id:
-                          type: integer
-                          x-stoplight:
-                            id: ef3agzkyiv7z0
-                        recipe_id:
-                          type: integer
-                          x-stoplight:
-                            id: ggmdqyb3ml1su
-                        message:
-                          type: string
-                          x-stoplight:
-                            id: usav0r6jrxlwr
-              examples:
-                Example 1:
-                  value:
-                    status: OK
-                    id: 1234
-                    products:
-                      - status: OK
-                        product_id: 3
-                      - status: OK
-                        recipe_id: 90
-                      - status: failure
-                        message: Product 90342 not found.
-        '401':
-          description: Unauthorized
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    x-stoplight:
-                      id: amkxeqxgxt0gh
-                  message:
-                    type: string
-                    x-stoplight:
-                      id: j11dh17hocbh9
-              examples:
-                Example 1:
-                  value:
-                    status: failure
-                    message: The destination is unknown.
-        '555':
-          description: |
-            Error, please, contact us.
-      operationId: post-production
-      x-stoplight:
-        id: xps072pkrpu18
-      description: This endpoint is used to create a new production on Koust
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  x-stoplight:
-                    id: xe3xt9kov5v2a
-                parts:
-                  x-stoplight:
-                    id: u827hruquf6wq
-                  type: integer
-                date:
-                  type: string
-                  x-stoplight:
-                    id: cqipl9s3js19u
-                  example: '12-31-2000 21:30:00'
-                  description: '*format : MM-DD-YYYY HH24:MI:SS*'
-                destination_id:
-                  type: integer
-                  x-stoplight:
-                    id: 3q4p4v7z4h4db
-                  description: can be found with /destination endpoint
-                products:
-                  type: array
-                  x-stoplight:
-                    id: l1pcf4otpu5t1
-                  items:
-                    $ref: '#/components/schemas/Production_detail'
-            examples:
-              Example 1:
-                value:
-                  name: Production number 1
-                  parts: 10
-                  date: '03-27-2024 16:30:00'
-                  destination_id: 345
-                  products:
-                    - product_id: 123
-                      quantity: 3
-                    - recipe_id: 23
-                      quantity: 1
-                      type_id: 34
-                    - recipe_id: 98
-                      quantity: 1
-      security:
-        - oauth2: []
   /recipes_type:
     get:
       summary: List recipes_type
