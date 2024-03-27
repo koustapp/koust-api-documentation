@@ -2700,7 +2700,7 @@ paths:
         - oauth2: []
   /recipes_type:
     get:
-      summary: Your GET endpoint
+      summary: List recipes_type
       responses:
         '200':
           description: OK
