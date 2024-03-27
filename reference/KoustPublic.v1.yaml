@@ -2521,6 +2521,54 @@ paths:
         - oauth2: []
       tags:
         - Recipes
+  /destination:
+    get:
+      summary: List destination
+      tags:
+        - NEW
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                x-examples:
+                  Example 1:
+                    content:
+                      - id: 99
+                        name: école du lac
+                      - id: 100
+                        name: Cuisine du lac
+              examples:
+                example:
+                  value:
+                    content:
+                      - id: 99
+                        name: école du lac
+                      - id: 100
+                        name: Cuisine du lac
+        '401':
+          description: Unauthorized
+        '555':
+          description: |
+            Error, please, contact us.
+      operationId: get-destination
+      security:
+        - oauth2: []
+      description: Use this endpoint to retrieve a ticket detail
+      x-stoplight:
+        id: tj8izjz14yrpx
 components:
   schemas:
     Bills-Model:
