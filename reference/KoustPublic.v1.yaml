@@ -2175,6 +2175,100 @@ paths:
                       quantity: 1
       security:
         - oauth2: []
+  '/productions/{id}':
+    post:
+      summary: Add products/recipes to a production
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: fmsj7cbtjxdfs
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      x-stoplight:
+                        id: eifxre45n84vr
+                    product_id:
+                      type: string
+                      x-stoplight:
+                        id: mzyz4b1v5faeq
+                    recipe_id:
+                      type: string
+                      x-stoplight:
+                        id: vxqemhr4dfzbf
+                    message:
+                      type: string
+                      x-stoplight:
+                        id: hall0wzj4bxsk
+              examples:
+                Example 1:
+                  value:
+                    - - status: OK
+                        product_id: 3
+                      - status: OK
+                        recipe_id: 90
+                      - status: failure
+                        message: Product 90342 not found.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+              examples:
+                Example 1:
+                  value:
+                    status: failure
+                    message: this production_id is unknown.
+        '555':
+          description: |
+            Error, please, contact us.
+      operationId: post-production-id
+      x-stoplight:
+        id: 42rc5e7u9q2kx
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: array
+                  x-stoplight:
+                    id: w3o78ch285kuw
+                  items:
+                    $ref: '#/components/schemas/Production_detail'
+            examples:
+              Example 1:
+                value:
+                  products:
+                    - product_id: 123
+                      quantity: 3
+                    - recipe_id: 89
+                      quantity: 20
+                      type_id: 3
+                    - recipe_id: 43
+                      quantity: 20
+      parameters:
+        - schema:
+            type: string
+          in: query
+    parameters:
+      - schema:
+          type: number
+        name: id
+        in: path
+        description: Production's id
+        required: true
   /recipes:
     get:
       summary: List recipes
@@ -2895,6 +2989,24 @@ components:
         Example 3:
           id: 3
           name: dessert
+    Status:
+      title: Status
+      x-stoplight:
+        id: eh1lpwliqd15r
+      type: object
+      properties:
+        status:
+          type: string
+          x-stoplight:
+            id: yfzy1sfuok759
+        message:
+          type: string
+          x-stoplight:
+            id: oe1cgizaqi4s4
+      x-examples:
+        Example 1:
+          status: failure
+          message: this production_id is unknown.
   parameters:
     Content-Type:
       name: Content-Type
