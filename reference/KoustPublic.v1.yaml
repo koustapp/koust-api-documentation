@@ -2263,7 +2263,7 @@ paths:
           description: 'date max of productions (optional) '
       requestBody:
         content: {}
-      description: Use this endpoint to retrieve the production's list of your establishement
+      description: Use this endpoint to retrieve the establishement's production list
       security:
         - oauth2: []
   '/productions/{id}':
