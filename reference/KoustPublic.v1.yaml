@@ -2034,7 +2034,8 @@ paths:
         '555':
           description: 'Error, please, contact us.'
       operationId: get-loss-id
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
       description: Use this endpoint to retrieve the detail of a loss
       security:
         - oauth2: []
@@ -2175,6 +2176,95 @@ paths:
                       quantity: 1
       security:
         - oauth2: []
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+    get:
+      summary: List Productions
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  productions:
+                    x-stoplight:
+                      id: fcul9dzttsdxj
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Production'
+                  page:
+                    type: integer
+                    x-stoplight:
+                      id: owy6u0ow5084i
+                  elements:
+                    type: integer
+                    x-stoplight:
+                      id: 05fff1aiy987z
+              examples:
+                Example 1:
+                  value:
+                    productions:
+                      - id: 1
+                        name: example 1
+                        date: '01-20-2024 20:00:00'
+                      - id: 2
+                        name: example 2
+                        date: '04-24-2024 02:00:00'
+                    page: 0
+                    elements: 2
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+              examples:
+                Example 1:
+                  value:
+                    status: failure
+                    message: 'Row''s number is not valid (min=1, max=100, default=50'
+      operationId: get-productions
+      x-stoplight:
+        id: zb0djbgwy3tvt
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+        - schema:
+            type: integer
+            minimum: 0
+            exclusiveMinimum: false
+          in: query
+          name: pageNumber
+          required: true
+          description: The page's number
+        - schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+          in: query
+          name: rowNumber
+          description: 'the number of Row you want to return (default : 50, optional)'
+        - schema:
+            type: string
+            pattern: MM-DD-YYYY
+          in: query
+          name: dateBeg
+          description: date min of productions (optional)
+          allowEmptyValue: true
+        - schema:
+            type: string
+            format: date
+            pattern: MM-DD-YYYY
+          in: query
+          name: dateEnd
+          description: 'date max of productions (optional) '
+      requestBody:
+        content: {}
+      description: Use this endpoint to retrieve the production's list of your establishement
+      security:
+        - oauth2: []
   '/productions/{id}':
     post:
       summary: Add products/recipes to a production
@@ -2260,9 +2350,7 @@ paths:
                     - recipe_id: 43
                       quantity: 20
       parameters:
-        - schema:
-            type: string
-          in: query
+        - $ref: '#/components/parameters/Authorization'
     parameters:
       - schema:
           type: number
@@ -3008,6 +3096,31 @@ components:
         Example 1:
           status: failure
           message: this production_id is unknown.
+    Production:
+      title: Production
+      x-stoplight:
+        id: 3ptftzqyfsiz1
+      type: object
+      x-examples:
+        Example 1:
+          id: '1'
+          name: Production example 1
+          date: '01-30-2024 19:30:00'
+      properties:
+        id:
+          type: integer
+          x-stoplight:
+            id: j8vq4uqei6n6s
+        name:
+          type: string
+          x-stoplight:
+            id: 8k2i2n17iej5z
+        date:
+          type: string
+          x-stoplight:
+            id: eb3msswrmsium
+          pattern: 'MM-DD-YYYY HH24:MI:SS'
+          format: date-time
   parameters:
     Content-Type:
       name: Content-Type
