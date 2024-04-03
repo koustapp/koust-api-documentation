@@ -2180,7 +2180,8 @@ paths:
         - $ref: '#/components/parameters/Authorization'
     get:
       summary: List Productions
-      tags: []
+      tags:
+        - Production
       responses:
         '200':
           description: OK
