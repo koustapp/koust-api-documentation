@@ -2354,11 +2354,156 @@ paths:
         - $ref: '#/components/parameters/Authorization'
     parameters:
       - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+      - schema:
           type: number
         name: id
         in: path
         description: Production's id
         required: true
+    get:
+      summary: List Production's detail
+      tags:
+        - Production
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: e6ajc2ybiywy8
+                  name:
+                    type: string
+                    x-stoplight:
+                      id: pqpji487xq2go
+                  date:
+                    type: string
+                    x-stoplight:
+                      id: 1yujssqjlgk0f
+                  recipes:
+                    type: array
+                    x-stoplight:
+                      id: gq83a4e0tkqdx
+                    items:
+                      x-stoplight:
+                        id: 8lv29x2nlnzpg
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          x-stoplight:
+                            id: x56sh8gaaff0m
+                        name:
+                          type: string
+                          x-stoplight:
+                            id: gq773s2z913x5
+                        state:
+                          type: string
+                          x-stoplight:
+                            id: 7dnxbupqq629j
+                        type:
+                          type: string
+                          x-stoplight:
+                            id: 6b27qum6p9ch9
+                        quantity:
+                          type: number
+                          x-stoplight:
+                            id: 4nqqi8p4qd6df
+                        unite:
+                          type: string
+                          x-stoplight:
+                            id: tkgtt0wxrsr6j
+                        price:
+                          type: number
+                          x-stoplight:
+                            id: ymwe0ujz9jkel
+                        tva:
+                          type: number
+                          x-stoplight:
+                            id: 7oydm8vel1mzr
+                        responsible:
+                          type: string
+                          x-stoplight:
+                            id: as8sgqutecvxz
+                        production_hour_begin:
+                          type: string
+                          x-stoplight:
+                            id: l51d6ymovvd7l
+                        production_hour_end:
+                          type: string
+                          x-stoplight:
+                            id: w0zkwovekwtli
+                  products:
+                    type: array
+                    x-stoplight:
+                      id: 52f2zlu06pk0z
+                    items:
+                      x-stoplight:
+                        id: 8rwwx1hjf8pdv
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          x-stoplight:
+                            id: d965gneo1ap66
+                        name:
+                          type: string
+                          x-stoplight:
+                            id: uu49zana11bxa
+                        category:
+                          type: string
+                          x-stoplight:
+                            id: 77s66097v8ilb
+                        quantity:
+                          type: number
+                          x-stoplight:
+                            id: 60gr0wmlf5ksm
+                        unite:
+                          type: string
+                          x-stoplight:
+                            id: xlz8v0fneiwon
+                        price:
+                          type: string
+                          x-stoplight:
+                            id: fcfr8rjenskiz
+              examples:
+                Example 1:
+                  value:
+                    id: 1
+                    name: production 1
+                    date: '03-02-2024 15:00:00'
+                    recipes:
+                      - id: '1'
+                        name: Banana Split
+                        state: Done
+                        type: dessert
+                        quantity: 3
+                        unite: cup
+                        tva: 3
+                        responsible: Pierre
+                        production_hour_begin: '03-02-2024 14:00:00'
+                        production_hour_end: '03-02-2024 14:15:00'
+                    products:
+                      - id: '34'
+                        name: speculoos
+                        category: biscuit
+                        quantity: 3
+                        unite: ''
+                        price: string
+      operationId: get-productions-id
+      x-stoplight:
+        id: ttjx60lcawcst
+      description: List products and recipes from a production
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
   /recipes:
     get:
       summary: List recipes
@@ -2907,6 +3052,8 @@ paths:
       security:
         - oauth2: []
       description: This endpoint is used to get the different recipe's types
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
 components:
   schemas:
     Bills-Model:
