@@ -1260,7 +1260,6 @@ paths:
         - Destinations
     post:
       summary: Create destination(s)
-      tags: []
       responses:
         '200':
           description: OK
@@ -1413,6 +1412,8 @@ paths:
                       nom_contact: Jean Dubois
                       telephone: '0756789012'
                     - name: Café Central
+      tags:
+        - Destinations
   /history_cost:
     get:
       summary: History cost
