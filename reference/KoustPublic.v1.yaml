@@ -1232,6 +1232,16 @@ paths:
                       name: Kitchen's Storage
                     - id: 1254
                       name: Mr example
+                      email: exemple@gmail.fr
+                      telephone: '0744675501'
+                    - id: 1543
+                      name: Restaurant Le Gourmet
+                      nom_contact: Marie Martin
+                      email: marie@legourmet.fr
+                      telephone: '0645678901'
+                      adresse: 12 Avenue des Champs
+                      code_postal: '75008'
+                      ville: Paris
         '401':
           description: Unauthorized
         '555':
@@ -1248,6 +1258,161 @@ paths:
         id: tj8izjz14yrpx
       tags:
         - Destinations
+    post:
+      summary: Your POST endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    x-stoplight:
+                      id: 7bgoscywov9w5
+                  nom_contact:
+                    type: string
+                    x-stoplight:
+                      id: le0af2boyjruq
+                  email:
+                    type: string
+                    x-stoplight:
+                      id: fiiebnt9sfq1x
+                  telephone:
+                    type: string
+                    x-stoplight:
+                      id: 2m5tt66v21zsi
+                  adresse:
+                    type: string
+                    x-stoplight:
+                      id: nzjfg5sfdffze
+                  code_postal:
+                    type: string
+                    x-stoplight:
+                      id: w7sycsj4rbdm7
+                  ville:
+                    type: string
+                    x-stoplight:
+                      id: u6ww9fug6kdzc
+              examples:
+                Example 1:
+                  value:
+                    - status: OK
+                      id: 156
+                      name: Restaurant Le Gourmet
+                    - status: OK
+                      id: 157
+                      name: Brasserie du Coin
+                    - status: OK
+                      id: 158
+                      name: Café Central
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    x-stoplight:
+                      id: tjw5zna02zgmg
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: teyvinlgx6eis
+              examples:
+                Example 1:
+                  value:
+                    status: failure
+                    message: you need to add at least one destination
+        '401':
+          description: Unauthorized
+          content: {}
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    x-stoplight:
+                      id: npyathx9kb5p5
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: fov9xh0s5sb0s
+              examples:
+                Example 1:
+                  value:
+                    status: failure
+                    message: Destination "Restaurant Le Gourmet" already exists.
+      operationId: post-destination
+      x-stoplight:
+        id: 2f9slhklmg56g
+      description: This endpoint is used to create a new destination on Koust
+      security:
+        - oauth2: []
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  x-stoplight:
+                    id: ixmefyetsdwof
+                nom_contact:
+                  type: string
+                  x-stoplight:
+                    id: ranpd1ji64da4
+                email:
+                  type: string
+                  x-stoplight:
+                    id: o6iderh0stxf8
+                telephone:
+                  type: string
+                  x-stoplight:
+                    id: p0xw7f9bbcb92
+                adresse:
+                  type: string
+                  x-stoplight:
+                    id: iyuu6slohd83e
+                code_postal:
+                  type: string
+                  x-stoplight:
+                    id: 2w0dxe62yndir
+                ville:
+                  type: string
+                  x-stoplight:
+                    id: b6wo4gxzqu2wa
+            examples:
+              Example 1:
+                value:
+                  destinataires:
+                    - name: Restaurant Le Gourmet
+                      nom_contact: Marie Martin
+                      email: marie@legourmet.fr
+                      telephone: '0645678901'
+                      adresse: 12 Avenue des Champs
+                      code_postal: '75008'
+                      ville: Paris
+                    - name: Brasserie du Coin
+                      nom_contact: Jean Dubois
+                      telephone: '0756789012'
+                    - name: Café Central
   /history_cost:
     get:
       summary: History cost
@@ -3153,8 +3318,16 @@ components:
           - id: 6789
             name: Kitchen's Storage
           - id: 1254
-            name: Mr example
+            name: Restaurant Le Gourmet
+            nom_contact: Marie Martin
+            email: marie@legourmet.fr
+            telephone: '0145678901'
+            adresse: 12 Avenue des Champs
+            code_postal: '75008'
+            ville: Paris
       description: The destination are used to the production.
+      required:
+        - name
       properties:
         id:
           type: integer
@@ -3164,6 +3337,30 @@ components:
           type: string
           x-stoplight:
             id: c1gq165x130e3
+        nom_contact:
+          type: string
+          x-stoplight:
+            id: 71l21rtwv0pgs
+        email:
+          type: string
+          x-stoplight:
+            id: uwjgbntca0p4b
+        telephone:
+          type: string
+          x-stoplight:
+            id: 6usjuga93kh3u
+        adresse:
+          type: string
+          x-stoplight:
+            id: pk6hg913r8c84
+        code_postal:
+          type: string
+          x-stoplight:
+            id: y4kbk9czzm3qx
+        ville:
+          type: string
+          x-stoplight:
+            id: dh8rfunso7x9f
     Production_detail:
       title: Production_detail
       x-stoplight:
