@@ -1266,38 +1266,24 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                required:
-                  - name
-                properties:
-                  name:
-                    type: string
-                    x-stoplight:
-                      id: 7bgoscywov9w5
-                  nom_contact:
-                    type: string
-                    x-stoplight:
-                      id: le0af2boyjruq
-                  email:
-                    type: string
-                    x-stoplight:
-                      id: fiiebnt9sfq1x
-                  telephone:
-                    type: string
-                    x-stoplight:
-                      id: 2m5tt66v21zsi
-                  adresse:
-                    type: string
-                    x-stoplight:
-                      id: nzjfg5sfdffze
-                  code_postal:
-                    type: string
-                    x-stoplight:
-                      id: w7sycsj4rbdm7
-                  ville:
-                    type: string
-                    x-stoplight:
-                      id: u6ww9fug6kdzc
+                type: array
+                items:
+                  x-stoplight:
+                    id: xcl2tymc1eu7e
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      x-stoplight:
+                        id: o80est42lelms
+                    id:
+                      type: number
+                      x-stoplight:
+                        id: yz15swbrzv89k
+                    name:
+                      type: string
+                      x-stoplight:
+                        id: p6u4oq179ozeq
               examples:
                 Example 1:
                   value:
@@ -1365,38 +1351,42 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                  x-stoplight:
-                    id: ixmefyetsdwof
-                nom_contact:
-                  type: string
-                  x-stoplight:
-                    id: ranpd1ji64da4
-                email:
-                  type: string
-                  x-stoplight:
-                    id: o6iderh0stxf8
-                telephone:
-                  type: string
-                  x-stoplight:
-                    id: p0xw7f9bbcb92
-                adresse:
-                  type: string
-                  x-stoplight:
-                    id: iyuu6slohd83e
-                code_postal:
-                  type: string
-                  x-stoplight:
-                    id: 2w0dxe62yndir
-                ville:
-                  type: string
-                  x-stoplight:
-                    id: b6wo4gxzqu2wa
+              type: array
+              items:
+                x-stoplight:
+                  id: mzvi1kv5o3yjf
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    x-stoplight:
+                      id: ure7iwdfy61lk
+                  nom_contact:
+                    type: string
+                    x-stoplight:
+                      id: 8xyb1pzzdvd1b
+                  email:
+                    type: string
+                    x-stoplight:
+                      id: vsf1vcgn036wt
+                  telephone:
+                    type: string
+                    x-stoplight:
+                      id: 8prjoen7r3llx
+                  adresse:
+                    type: string
+                    x-stoplight:
+                      id: trk9cb7vxloqk
+                  code_postal:
+                    type: string
+                    x-stoplight:
+                      id: irtd5zae84dhw
+                  ville:
+                    type: string
+                    x-stoplight:
+                      id: 0ipdmq17fk2h9
             examples:
               Example 1:
                 value:
