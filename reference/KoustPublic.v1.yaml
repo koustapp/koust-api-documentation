@@ -1259,7 +1259,7 @@ paths:
       tags:
         - Destinations
     post:
-      summary: Your POST endpoint
+      summary: Create destination(s)
       tags: []
       responses:
         '200':
