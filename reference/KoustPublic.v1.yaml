@@ -2254,6 +2254,8 @@ paths:
           name: dateEnd
           description: 'date max of productions (optional) '
         - $ref: '#/components/parameters/Authorization'
+      security:
+        - oauth2: []
   /productions:
     post:
       summary: Create a new production
