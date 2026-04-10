@@ -2197,10 +2197,11 @@ paths:
         - oauth2: []
       tags:
         - Loss
-  /OOOOOOOOOO:
+  /lots:
     get:
       summary: List Lots
-      tags: []
+      tags:
+        - Lots
       responses:
         '200':
           description: OK
