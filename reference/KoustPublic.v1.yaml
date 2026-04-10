@@ -2197,6 +2197,63 @@ paths:
         - oauth2: []
       tags:
         - Loss
+  /lots:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lots:
+                    type: array
+                    x-stoplight:
+                      id: q5jpfrxkns2ct
+                    items:
+                      $ref: '#/components/schemas/lots-model'
+              examples:
+                Example 1:
+                  value:
+                    lots:
+                      - id: 1
+                        date_lot: 01-30-2020
+                        recipe_id: 12345
+                        quantity: 30
+                        unit: Portion(s)
+                        responsible: Joe Banane
+                        date_dlc: 02-02-2020
+                        allergens: 'Anhydride & Sulfites,   Crustacé, Fruit à coque, Gluten, Lait, Mollusque, Oeuf, Poisson'
+      operationId: get-lots
+      x-stoplight:
+        id: jbytrvcv64o8c
+      description: Use this endpoint to retrieve the lots made on your account.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: pageNumber
+          required: true
+          description: The page's number
+        - schema:
+            type: integer
+          in: query
+          name: rowNumber
+          description: 'the number of Row you want to return (default : 50, optional)'
+        - schema:
+            type: string
+          in: query
+          name: dateBeg
+          description: date min of productions (optional)
+        - schema:
+            type: string
+          in: query
+          name: dateEnd
+          description: 'date max of productions (optional) '
+        - $ref: '#/components/parameters/Authorization'
   /productions:
     post:
       summary: Create a new production
@@ -2387,7 +2444,7 @@ paths:
       x-stoplight:
         id: zb0djbgwy3tvt
       parameters:
-        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/Content-Type'
         - schema:
             type: integer
             minimum: 0
@@ -3457,6 +3514,56 @@ components:
             id: eb3msswrmsium
           pattern: 'MM-DD-YYYY HH24:MI:SS'
           format: date-time
+    lots-model:
+      title: Lots-model
+      x-stoplight:
+        id: jz6ix9c5cp9l6
+      type: object
+      properties:
+        id:
+          type: integer
+          x-stoplight:
+            id: g7362277h202m
+        date_lot:
+          type: string
+          x-stoplight:
+            id: 4uckfm89mvlgt
+          format: date
+        recipe_id:
+          type: integer
+          x-stoplight:
+            id: p19ec2lagi2wo
+        quantity:
+          type: integer
+          x-stoplight:
+            id: 6l72a8216b4hj
+        unit:
+          type: string
+          x-stoplight:
+            id: bgzhsdx6mig72
+        responsible:
+          type: string
+          x-stoplight:
+            id: emh634bvxxhuy
+        date_dlc:
+          type: string
+          x-stoplight:
+            id: d4yeuxkpz605k
+          format: date
+        allergens:
+          type: string
+          x-stoplight:
+            id: plq1kop93xc0k
+      x-examples:
+        Example 1:
+          id: 1
+          date_lot: 01-30-2020
+          recipe_id: 12345
+          quantity: 30
+          unit: Portion(s)
+          responsible: Joe Banane
+          date_dlc: 02-02-2020
+          allergens: 'Anhydride & Sulfites, Crustacé, Fruit à coque, Gluten, Lait, Mollusque, Oeuf, Poisson'
   parameters:
     Content-Type:
       name: Content-Type
