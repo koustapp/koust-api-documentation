@@ -2447,7 +2447,7 @@ paths:
       x-stoplight:
         id: zb0djbgwy3tvt
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Authorization'
         - schema:
             type: integer
             minimum: 0
