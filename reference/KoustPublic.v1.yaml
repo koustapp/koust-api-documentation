@@ -2197,7 +2197,7 @@ paths:
         - oauth2: []
       tags:
         - Loss
-  /lots:
+  /OOOOOOOOOO:
     get:
       summary: List Lots
       tags: []
@@ -2256,6 +2256,7 @@ paths:
         - $ref: '#/components/parameters/Authorization'
       security:
         - oauth2: []
+    parameters: []
   /productions:
     post:
       summary: Create a new production
